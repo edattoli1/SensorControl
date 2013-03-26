@@ -11,7 +11,6 @@ using System.IO;
 using System.Threading;
 using System.Diagnostics;
 using System.Runtime;
-//using System.Windows;
 using Ke648x;
 
 namespace MFCcontrol
@@ -24,7 +23,6 @@ namespace MFCcontrol
         private GenTimer timerADgraph;
         //private HiResTimer timerADacquire;
         private GenTimer timerADacquire;
-        //private GenTimer timerSaveADdata;
         private GenTimer timerADoutUpdate;
         private StreamWriter swriter;
         private List<string[]> ADoutTableValues_s;
@@ -38,8 +36,8 @@ namespace MFCcontrol
         private bool AinGraphUpdateState;
         private int ADgraphUpdateCnt;
         private double[] presentMFCsetting;
-        private Ke648xGUI PicoammForm;
-        private Ke648xControl PicoammControl;
+        private static Ke648xGUI PicoammForm;
+        static private Ke648xControl PicoammControl;
 
         // state of the MFCs for the recipe to be used
         // 0th in array corresponds to MFC 1, .., etc
@@ -101,8 +99,6 @@ namespace MFCcontrol
             timerADoutUpdate.AutoResetEnable();
             timerADoutUpdate.SetInterval(Settings1.Default.ADoutRefreshTime_ms);
 
-            //timerSaveADdata = new GenTimer();
-            //timerSaveADdata.SetInterval(Settings1.Default.ADacquireTime_ms);
 
         }
 
@@ -139,11 +135,15 @@ namespace MFCcontrol
             mfcControl3.SetMFCnumber(3);
             mfcControl4.SetMFCnumber(4);
 
-
+            //Set whether recipe controls the following MFCs, stateMFC is logic control at runtime, Settings is permanent store
             stateMFCs[0] = Settings1.Default.MFC1enable;
             stateMFCs[1] = Settings1.Default.MFC2enable;
             stateMFCs[2] = Settings1.Default.MFC3enable;
             stateMFCs[3] = Settings1.Default.MFC4enable;
+
+            // Picoammeter init stuff
+            PicoammControl = new Ke648xControl();
+            controlPicoammBox.Checked = Settings1.Default.PicoammeterControlEnable;
 
             viewFlowRecipe.Enabled = false;
             startButton.Enabled = false;
@@ -169,14 +169,7 @@ namespace MFCcontrol
             timerADgraph.TimerElapsed += UpdateADgraphHandler;
 
             //Zero all AD outputs
-            try
-            {
-               daqOutput.ZeroDaqOuts();
-            }
-            catch
-            {
-                DaqOutputProblem();
-            }
+            ZeroAllOutputs();
 
         }
 
@@ -201,7 +194,6 @@ namespace MFCcontrol
             mfcControl2.UpdatePresFlowBox(DaqAction.GetMFCflowFromVolts(currentADin[1], 2));
             mfcControl3.UpdatePresFlowBox(DaqAction.GetMFCflowFromVolts(currentADin[2], 3));
             mfcControl4.UpdatePresFlowBox(DaqAction.GetMFCflowFromVolts(currentADin[3], 4));
-            //mfcPresFlowBox4.Text = DaqAction.GetMFCflowFromVolts(currentADin[3], 4).ToString("0.00");
 
             if (recipeRunning == true)
             {
@@ -225,15 +217,9 @@ namespace MFCcontrol
                 mfcControl2.UpdateSetFlowValue(presentMFCsetting[1]);
                 mfcControl3.UpdateSetFlowValue(presentMFCsetting[2]);
                 mfcControl4.UpdateSetFlowValue(presentMFCsetting[3]);
-                //mfc4TextBox.Value = Convert.ToDecimal(presentMFCsetting[3]); 
-
-
 
             }
         }
-
-
-
 
 
         private void startButton_Click(object sender, EventArgs e)
@@ -488,20 +474,6 @@ namespace MFCcontrol
             }
 
             await swriter.WriteAsync(Environment.NewLine);
-            
-
-             //simulate a long delay
-            
-            //int b = await Task.Run(() =>
-            // {
-            //     //Task.Delay(10000);
-            //     for (int i = 0; i < 1000000000000000; i++)
-            //     {
-            //         i = i * 2;
-            //     }
-            //     return 1;
-                 
-            // });
 
             saveADdataBusy = false;
         }
@@ -549,19 +521,10 @@ namespace MFCcontrol
             watch.StopStopwatch();
 
             //Zero all AD outputs
-            try
-            {
-                daqOutput.ZeroDaqOuts();
-            }
-            catch
-            {
-                DaqOutputProblem();
-            }
+            ZeroAllOutputs();
 
-        
-
-            //disable writing to disk for last AD acquire events due to last callbacks from HiResTimer class
-            //UpdateADacquireBusy = true;
+            //Save all Settings
+            Settings1.Default.Save();
 
             //wait for disk writes, our timer handlers to finish before closing file
             while ((saveADdataBusy == true) || (UpdateADacquireBusy == true) || (updateADoutputBusy == true))
@@ -607,7 +570,6 @@ namespace MFCcontrol
                 mfcControl2.SetMFCnumber(2);
                 mfcControl3.SetMFCnumber(3);
                 mfcControl4.SetMFCnumber(4);
-              //  mfc4TextBox.Maximum = Convert.ToDecimal(Settings1.Default.MFC4maxRange);
 
                 // Load all rows of recipe Spreadsheet into ADoutTableValues_s
                 // Empty cells are marked translated into -1 (means do nothing)
@@ -740,7 +702,8 @@ namespace MFCcontrol
         {
             chart1.Series[0].Points.Clear();
             chart1.Series[1].Points.Clear();
-
+            chart1.Series[2].Points.Clear();
+            chart1.Series[3].Points.Clear();
         }
 
         private void graphUpdateUD_ValueChanged(object sender, EventArgs e)
@@ -809,6 +772,9 @@ namespace MFCcontrol
             mfcControl3.EnableUserControl();
             mfcControl4.EnableUserControl();
 
+            //Zero all AD outputs
+            ZeroAllOutputs();
+
             recipeRunning = false;
             recipePauseCheckbox.Enabled = false;
             resetGraphButton_Click(this, EventArgs.Empty);
@@ -836,6 +802,10 @@ namespace MFCcontrol
         private void ke648xStart_Click(object sender, EventArgs e)
         {
             //PicoAmmForm = new Ke648xGUI();
+            if (PicoammForm == null)
+                PicoammForm = new Ke648xGUI();
+
+            PicoammForm.Show();
         }
 
 
@@ -873,6 +843,36 @@ namespace MFCcontrol
             e.Graphics.DrawLine(Pens.Black, e.CellBounds.Location, new Point(e.CellBounds.Right, e.CellBounds.Top));
         }
 
+        private void ZeroAllOutputs()
+        {
+            try
+            {
+                daqOutput.ZeroDaqOuts();
+                mfcControl1.ZeroControl();
+                mfcControl2.ZeroControl();
+                mfcControl3.ZeroControl();
+                mfcControl4.ZeroControl();
+            }
+            catch
+            {
+                DaqOutputProblem();
+            }
+        }
+
+        private void controlPicoammBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (controlPicoammBox.Checked == true)
+            {
+                PicoammControl.InitSession();
+                PicoammControl.InitDevice();
+                Settings1.Default.PicoammeterControlEnable = controlPicoammBox.Checked;
+            }
+            else
+            {
+                PicoammControl.EndSession();
+                Settings1.Default.PicoammeterControlEnable = controlPicoammBox.Checked;
+            }
+        }
 
     }
 

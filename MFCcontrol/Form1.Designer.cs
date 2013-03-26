@@ -45,6 +45,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label16 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -70,20 +71,23 @@
             this.label13 = new System.Windows.Forms.Label();
             this.graphUpdateUDbox = new System.Windows.Forms.NumericUpDown();
             this.label12 = new System.Windows.Forms.Label();
-            this.ke648xStart = new System.Windows.Forms.Button();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.picoammSettingsButton = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.controlPicoammBox = new System.Windows.Forms.CheckBox();
             this.mfcControl4 = new MFCcontrol.MFCcontrolTemplate();
             this.mfcControl1 = new MFCcontrol.MFCcontrolTemplate();
             this.mfcControl2 = new MFCcontrol.MFCcontrolTemplate();
             this.mfcControl3 = new MFCcontrol.MFCcontrolTemplate();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.panel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.samplesToResetUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.graphUpdateUDbox)).BeginInit();
-            this.tableLayoutPanel2.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // chart1
@@ -189,7 +193,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.01739F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(10, 10);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(125, 20);
+            this.label2.Size = new System.Drawing.Size(120, 20);
             this.label2.TabIndex = 12;
             this.label2.Text = "MFC STATUS";
             // 
@@ -226,6 +230,24 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(506, 303);
             this.panel1.TabIndex = 13;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.mfcControl4, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.mfcControl1, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.mfcControl2, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.mfcControl3, 0, 2);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 75);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 4;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(498, 174);
+            this.tableLayoutPanel2.TabIndex = 36;
             // 
             // tableLayoutPanel1
             // 
@@ -323,7 +345,7 @@
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.01739F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(12, 10);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(171, 20);
+            this.label11.Size = new System.Drawing.Size(163, 20);
             this.label11.TabIndex = 16;
             this.label11.Text = "RECIPE CONTROL";
             // 
@@ -389,7 +411,7 @@
             this.recipePauseCheckbox.AutoSize = true;
             this.recipePauseCheckbox.Location = new System.Drawing.Point(67, 170);
             this.recipePauseCheckbox.Name = "recipePauseCheckbox";
-            this.recipePauseCheckbox.Size = new System.Drawing.Size(18, 17);
+            this.recipePauseCheckbox.Size = new System.Drawing.Size(15, 14);
             this.recipePauseCheckbox.TabIndex = 19;
             this.recipePauseCheckbox.UseVisualStyleBackColor = true;
             this.recipePauseCheckbox.CheckedChanged += new System.EventHandler(this.recipePauseCheckbox_CheckedChanged);
@@ -449,7 +471,7 @@
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.01739F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.Location = new System.Drawing.Point(676, 7);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(169, 20);
+            this.label18.Size = new System.Drawing.Size(160, 20);
             this.label18.TabIndex = 25;
             this.label18.Text = "GRAPH CONTROL";
             // 
@@ -492,7 +514,7 @@
             this.AinGraphUpdateBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.AinGraphUpdateBox.Location = new System.Drawing.Point(808, 160);
             this.AinGraphUpdateBox.Name = "AinGraphUpdateBox";
-            this.AinGraphUpdateBox.Size = new System.Drawing.Size(18, 17);
+            this.AinGraphUpdateBox.Size = new System.Drawing.Size(15, 14);
             this.AinGraphUpdateBox.TabIndex = 22;
             this.AinGraphUpdateBox.UseVisualStyleBackColor = true;
             this.AinGraphUpdateBox.CheckedChanged += new System.EventHandler(this.AinGraphUpdateBox_CheckedChanged);
@@ -544,33 +566,48 @@
             this.label12.TabIndex = 19;
             this.label12.Text = "Update Time (s)";
             // 
-            // ke648xStart
+            // picoammSettingsButton
             // 
-            this.ke648xStart.Location = new System.Drawing.Point(577, 608);
-            this.ke648xStart.Name = "ke648xStart";
-            this.ke648xStart.Size = new System.Drawing.Size(146, 31);
-            this.ke648xStart.TabIndex = 20;
-            this.ke648xStart.Text = "PicoAmm Control";
-            this.ke648xStart.UseVisualStyleBackColor = true;
-            this.ke648xStart.Click += new System.EventHandler(this.ke648xStart_Click);
+            this.picoammSettingsButton.Location = new System.Drawing.Point(219, 55);
+            this.picoammSettingsButton.Name = "picoammSettingsButton";
+            this.picoammSettingsButton.Size = new System.Drawing.Size(88, 31);
+            this.picoammSettingsButton.TabIndex = 20;
+            this.picoammSettingsButton.Text = "Settings";
+            this.picoammSettingsButton.UseVisualStyleBackColor = true;
+            this.picoammSettingsButton.Click += new System.EventHandler(this.ke648xStart_Click);
             // 
-            // tableLayoutPanel2
+            // label7
             // 
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.mfcControl4, 0, 3);
-            this.tableLayoutPanel2.Controls.Add(this.mfcControl1, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.mfcControl2, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.mfcControl3, 0, 2);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 75);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 4;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(498, 174);
-            this.tableLayoutPanel2.TabIndex = 36;
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.01739F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(12, 7);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(226, 20);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "PICOAMMETER CONTROL";
+            // 
+            // panel5
+            // 
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.controlPicoammBox);
+            this.panel5.Controls.Add(this.label7);
+            this.panel5.Controls.Add(this.picoammSettingsButton);
+            this.panel5.Location = new System.Drawing.Point(571, 617);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(331, 100);
+            this.panel5.TabIndex = 23;
+            // 
+            // controlPicoammBox
+            // 
+            this.controlPicoammBox.AutoSize = true;
+            this.controlPicoammBox.Location = new System.Drawing.Point(22, 61);
+            this.controlPicoammBox.Name = "controlPicoammBox";
+            this.controlPicoammBox.Size = new System.Drawing.Size(158, 21);
+            this.controlPicoammBox.TabIndex = 22;
+            this.controlPicoammBox.Text = "Control Picoammeter";
+            this.controlPicoammBox.UseVisualStyleBackColor = true;
+            this.controlPicoammBox.CheckedChanged += new System.EventHandler(this.controlPicoammBox_CheckedChanged);
             // 
             // mfcControl4
             // 
@@ -604,8 +641,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(950, 649);
-            this.Controls.Add(this.ke648xStart);
+            this.ClientSize = new System.Drawing.Size(950, 729);
+            this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -615,9 +652,11 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
+
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -626,7 +665,8 @@
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.samplesToResetUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.graphUpdateUDbox)).EndInit();
-            this.tableLayoutPanel2.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -669,12 +709,15 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox nextRecipeTimeEventBox;
-        private System.Windows.Forms.Button ke648xStart;
+        private System.Windows.Forms.Button picoammSettingsButton;
         private MFCcontrolTemplate mfcControl4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private MFCcontrolTemplate mfcControl1;
         private MFCcontrolTemplate mfcControl2;
         private MFCcontrolTemplate mfcControl3;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.CheckBox controlPicoammBox;
         
     }
 }

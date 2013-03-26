@@ -142,6 +142,11 @@ namespace MFCcontrol
             mfc1TextBox.Value = Convert.ToDecimal(inFlow);
         }
 
+        public void ZeroControl()
+        {
+            mfc1TextBox.Value = Convert.ToDecimal(0);
+        }
+
         public void EnableUserControl()
         {
             mfc1TextBox.Enabled = true;

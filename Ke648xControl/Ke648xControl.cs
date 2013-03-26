@@ -9,7 +9,7 @@ using NationalInstruments.NI4882;
 
 // Controls the Keithly 6485 or 6487
 // Undefine #define K6487 if you have a 6487 and want to control voltage output
-
+// This is a singleton class (only one instance is allowed)
 
 namespace Ke648x
 {
@@ -17,7 +17,7 @@ namespace Ke648x
     {
         private int GPIBaddress = 22;
         private Device device;
-
+        
         public void InitSession()
         {
             try
@@ -39,7 +39,12 @@ namespace Ke648x
             {
                 Cursor.Current = Cursors.Default;
             }
+            
+        }
 
+        public void EndSession()
+        {
+            device.Dispose();
         }
 
         public string GetIdentString()

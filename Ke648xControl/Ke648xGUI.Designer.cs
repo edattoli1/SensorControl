@@ -60,7 +60,7 @@
             this.initDeviceButton.UseVisualStyleBackColor = true;
             this.initDeviceButton.Click += new System.EventHandler(this.initDeviceButton_Click);
             // 
-            // Form1
+            // Ke648xGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -68,8 +68,9 @@
             this.Controls.Add(this.initDeviceButton);
             this.Controls.Add(this.gpibReadBox);
             this.Controls.Add(this.startGPIBbutton);
-            this.Name = "Form1";
+            this.Name = "Ke648xGUI";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Ke648xGUI_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

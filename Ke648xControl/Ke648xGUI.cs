@@ -42,5 +42,12 @@ namespace Ke648x
 
         }
 
+        private void Ke648xGUI_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Visible = false;
+            e.Cancel = true;
+            base.OnClosing(e);
+        }
+
     }
 }

@@ -117,6 +117,7 @@
       <DependentUpon>Settings1.settings</DependentUpon>
     </Compile>
     <Compile Include="SShtLoad.cs" />
+    <Compile Include="Util.cs" />
     <EmbeddedResource Include="ConfigureMFCs.resx">
       <DependentUpon>ConfigureMFCs.cs</DependentUpon>
     </EmbeddedResource>
