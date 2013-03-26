@@ -41,37 +41,16 @@
             this.loadFlowsButton = new System.Windows.Forms.Button();
             this.viewFlowRecipe = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.mfc2Display = new System.Windows.Forms.Label();
-            this.mfc1Display = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.MFC3maxFlow = new System.Windows.Forms.Label();
-            this.mfcPresFlowBox3 = new System.Windows.Forms.TextBox();
-            this.MFC3checkBox = new System.Windows.Forms.CheckBox();
-            this.label19 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.mfcPlotCheck2 = new System.Windows.Forms.CheckBox();
-            this.mfcPresFlowBox2 = new System.Windows.Forms.TextBox();
-            this.mfc2TextBox = new System.Windows.Forms.NumericUpDown();
-            this.mfcPresFlowBox1 = new System.Windows.Forms.TextBox();
-            this.mfc1TextBox = new System.Windows.Forms.NumericUpDown();
-            this.MFC1maxLabel = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.MFC2maxFlow = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.MFC2checkBox = new System.Windows.Forms.CheckBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.MFC1checkBox = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.mfcPlotCheck1 = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.mfcPlotCheck3 = new System.Windows.Forms.CheckBox();
-            this.mfc3TextBox = new System.Windows.Forms.NumericUpDown();
             this.configMFCsButton = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -92,17 +71,19 @@
             this.graphUpdateUDbox = new System.Windows.Forms.NumericUpDown();
             this.label12 = new System.Windows.Forms.Label();
             this.ke648xStart = new System.Windows.Forms.Button();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.mfcControl4 = new MFCcontrol.MFCcontrolTemplate();
+            this.mfcControl1 = new MFCcontrol.MFCcontrolTemplate();
+            this.mfcControl2 = new MFCcontrol.MFCcontrolTemplate();
+            this.mfcControl3 = new MFCcontrol.MFCcontrolTemplate();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.mfc2TextBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mfc1TextBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mfc3TextBox)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.samplesToResetUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.graphUpdateUDbox)).BeginInit();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // chart1
@@ -201,28 +182,6 @@
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Filter = "Excel2007+|*.xlsx";
             // 
-            // mfc2Display
-            // 
-            this.mfc2Display.AutoSize = true;
-            this.mfc2Display.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.mfc2Display.Location = new System.Drawing.Point(8, 81);
-            this.mfc2Display.Margin = new System.Windows.Forms.Padding(8);
-            this.mfc2Display.Name = "mfc2Display";
-            this.mfc2Display.Size = new System.Drawing.Size(16, 17);
-            this.mfc2Display.TabIndex = 11;
-            this.mfc2Display.Text = "2";
-            // 
-            // mfc1Display
-            // 
-            this.mfc1Display.AutoSize = true;
-            this.mfc1Display.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.mfc1Display.Location = new System.Drawing.Point(8, 35);
-            this.mfc1Display.Margin = new System.Windows.Forms.Padding(8);
-            this.mfc1Display.Name = "mfc1Display";
-            this.mfc1Display.Size = new System.Drawing.Size(16, 17);
-            this.mfc1Display.TabIndex = 10;
-            this.mfc1Display.Text = "1";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -241,7 +200,7 @@
             this.label3.Location = new System.Drawing.Point(159, 8);
             this.label3.Margin = new System.Windows.Forms.Padding(8);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 11);
+            this.label3.Size = new System.Drawing.Size(46, 13);
             this.label3.TabIndex = 17;
             this.label3.Text = "Enable?";
             // 
@@ -252,14 +211,14 @@
             this.label4.Location = new System.Drawing.Point(299, 8);
             this.label4.Margin = new System.Windows.Forms.Padding(8);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 11);
+            this.label4.Size = new System.Drawing.Size(48, 13);
             this.label4.TabIndex = 18;
             this.label4.Text = "Set Flow";
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.mfcControl4);
+            this.panel1.Controls.Add(this.tableLayoutPanel2);
             this.panel1.Controls.Add(this.tableLayoutPanel1);
             this.panel1.Controls.Add(this.configMFCsButton);
             this.panel1.Controls.Add(this.label2);
@@ -278,87 +237,19 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 77F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.MFC3maxFlow, 3, 3);
-            this.tableLayoutPanel1.Controls.Add(this.mfcPresFlowBox3, 5, 3);
-            this.tableLayoutPanel1.Controls.Add(this.MFC3checkBox, 2, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label19, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.label16, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label15, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.mfcPlotCheck2, 6, 2);
-            this.tableLayoutPanel1.Controls.Add(this.mfcPresFlowBox2, 5, 2);
-            this.tableLayoutPanel1.Controls.Add(this.mfc2TextBox, 4, 2);
-            this.tableLayoutPanel1.Controls.Add(this.mfcPresFlowBox1, 5, 1);
-            this.tableLayoutPanel1.Controls.Add(this.mfc1TextBox, 4, 1);
-            this.tableLayoutPanel1.Controls.Add(this.MFC1maxLabel, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label7, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.MFC2maxFlow, 3, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label8, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.MFC2checkBox, 2, 2);
-            this.tableLayoutPanel1.Controls.Add(this.mfc1Display, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label9, 6, 0);
             this.tableLayoutPanel1.Controls.Add(this.label10, 5, 0);
-            this.tableLayoutPanel1.Controls.Add(this.MFC1checkBox, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.label5, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.label4, 4, 0);
-            this.tableLayoutPanel1.Controls.Add(this.mfc2Display, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.mfcPlotCheck1, 6, 1);
             this.tableLayoutPanel1.Controls.Add(this.label6, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.mfcPlotCheck3, 6, 3);
-            this.tableLayoutPanel1.Controls.Add(this.mfc3TextBox, 4, 3);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 43);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 4;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(498, 156);
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(498, 30);
             this.tableLayoutPanel1.TabIndex = 34;
-            // 
-            // MFC3maxFlow
-            // 
-            this.MFC3maxFlow.AutoSize = true;
-            this.MFC3maxFlow.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::MFCcontrol.Settings1.Default, "MFC3maxRange", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.MFC3maxFlow.Location = new System.Drawing.Point(230, 123);
-            this.MFC3maxFlow.Margin = new System.Windows.Forms.Padding(8);
-            this.MFC3maxFlow.Name = "MFC3maxFlow";
-            this.MFC3maxFlow.Size = new System.Drawing.Size(32, 17);
-            this.MFC3maxFlow.TabIndex = 46;
-            this.MFC3maxFlow.Text = global::MFCcontrol.Settings1.Default.MFC3maxRange;
-            // 
-            // mfcPresFlowBox3
-            // 
-            this.mfcPresFlowBox3.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.mfcPresFlowBox3.Enabled = false;
-            this.mfcPresFlowBox3.Location = new System.Drawing.Point(376, 123);
-            this.mfcPresFlowBox3.Margin = new System.Windows.Forms.Padding(8);
-            this.mfcPresFlowBox3.Name = "mfcPresFlowBox3";
-            this.mfcPresFlowBox3.Size = new System.Drawing.Size(45, 22);
-            this.mfcPresFlowBox3.TabIndex = 32;
-            // 
-            // MFC3checkBox
-            // 
-            this.MFC3checkBox.AutoSize = true;
-            this.MFC3checkBox.Checked = global::MFCcontrol.Settings1.Default.MFC3enable;
-            this.MFC3checkBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::MFCcontrol.Settings1.Default, "MFC3enable", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.MFC3checkBox.Location = new System.Drawing.Point(159, 123);
-            this.MFC3checkBox.Margin = new System.Windows.Forms.Padding(8);
-            this.MFC3checkBox.Name = "MFC3checkBox";
-            this.MFC3checkBox.Size = new System.Drawing.Size(18, 17);
-            this.MFC3checkBox.TabIndex = 39;
-            this.MFC3checkBox.UseVisualStyleBackColor = true;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::MFCcontrol.Settings1.Default, "MFC3Gas", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.label19.Location = new System.Drawing.Point(53, 123);
-            this.label19.Margin = new System.Windows.Forms.Padding(8);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(63, 17);
-            this.label19.TabIndex = 37;
-            this.label19.Text = global::MFCcontrol.Settings1.Default.MFC3Gas;
             // 
             // label16
             // 
@@ -367,130 +258,9 @@
             this.label16.Location = new System.Drawing.Point(8, 8);
             this.label16.Margin = new System.Windows.Forms.Padding(8);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(29, 11);
+            this.label16.Size = new System.Drawing.Size(29, 13);
             this.label16.TabIndex = 35;
             this.label16.Text = "MFC";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.label15.Location = new System.Drawing.Point(8, 123);
-            this.label15.Margin = new System.Windows.Forms.Padding(8);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(16, 17);
-            this.label15.TabIndex = 33;
-            this.label15.Text = "3";
-            // 
-            // mfcPlotCheck2
-            // 
-            this.mfcPlotCheck2.AutoSize = true;
-            this.mfcPlotCheck2.Checked = global::MFCcontrol.Settings1.Default.MFC2PlotEnable;
-            this.mfcPlotCheck2.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.mfcPlotCheck2.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::MFCcontrol.Settings1.Default, "MFC2PlotEnable", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.mfcPlotCheck2.Location = new System.Drawing.Point(456, 81);
-            this.mfcPlotCheck2.Margin = new System.Windows.Forms.Padding(8);
-            this.mfcPlotCheck2.Name = "mfcPlotCheck2";
-            this.mfcPlotCheck2.Size = new System.Drawing.Size(18, 17);
-            this.mfcPlotCheck2.TabIndex = 28;
-            this.mfcPlotCheck2.UseVisualStyleBackColor = true;
-            // 
-            // mfcPresFlowBox2
-            // 
-            this.mfcPresFlowBox2.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.mfcPresFlowBox2.Enabled = false;
-            this.mfcPresFlowBox2.Location = new System.Drawing.Point(376, 81);
-            this.mfcPresFlowBox2.Margin = new System.Windows.Forms.Padding(8);
-            this.mfcPresFlowBox2.Name = "mfcPresFlowBox2";
-            this.mfcPresFlowBox2.Size = new System.Drawing.Size(45, 22);
-            this.mfcPresFlowBox2.TabIndex = 31;
-            // 
-            // mfc2TextBox
-            // 
-            this.mfc2TextBox.DecimalPlaces = 2;
-            this.mfc2TextBox.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.mfc2TextBox.Location = new System.Drawing.Point(299, 81);
-            this.mfc2TextBox.Margin = new System.Windows.Forms.Padding(8);
-            this.mfc2TextBox.Name = "mfc2TextBox";
-            this.mfc2TextBox.Size = new System.Drawing.Size(54, 22);
-            this.mfc2TextBox.TabIndex = 32;
-            // 
-            // mfcPresFlowBox1
-            // 
-            this.mfcPresFlowBox1.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.mfcPresFlowBox1.Enabled = false;
-            this.mfcPresFlowBox1.Location = new System.Drawing.Point(376, 35);
-            this.mfcPresFlowBox1.Margin = new System.Windows.Forms.Padding(8);
-            this.mfcPresFlowBox1.Name = "mfcPresFlowBox1";
-            this.mfcPresFlowBox1.Size = new System.Drawing.Size(45, 22);
-            this.mfcPresFlowBox1.TabIndex = 30;
-            // 
-            // mfc1TextBox
-            // 
-            this.mfc1TextBox.DecimalPlaces = 2;
-            this.mfc1TextBox.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.mfc1TextBox.Location = new System.Drawing.Point(299, 35);
-            this.mfc1TextBox.Margin = new System.Windows.Forms.Padding(8);
-            this.mfc1TextBox.Name = "mfc1TextBox";
-            this.mfc1TextBox.Size = new System.Drawing.Size(54, 22);
-            this.mfc1TextBox.TabIndex = 16;
-            // 
-            // MFC1maxLabel
-            // 
-            this.MFC1maxLabel.AutoSize = true;
-            this.MFC1maxLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::MFCcontrol.Settings1.Default, "MFC1maxRange", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.MFC1maxLabel.Location = new System.Drawing.Point(230, 35);
-            this.MFC1maxLabel.Margin = new System.Windows.Forms.Padding(8);
-            this.MFC1maxLabel.Name = "MFC1maxLabel";
-            this.MFC1maxLabel.Size = new System.Drawing.Size(40, 17);
-            this.MFC1maxLabel.TabIndex = 20;
-            this.MFC1maxLabel.Text = global::MFCcontrol.Settings1.Default.MFC1maxRange;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::MFCcontrol.Settings1.Default, "MFC1Gas", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.label7.Location = new System.Drawing.Point(53, 35);
-            this.label7.Margin = new System.Windows.Forms.Padding(8);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(25, 17);
-            this.label7.TabIndex = 23;
-            this.label7.Text = global::MFCcontrol.Settings1.Default.MFC1Gas;
-            // 
-            // MFC2maxFlow
-            // 
-            this.MFC2maxFlow.AutoSize = true;
-            this.MFC2maxFlow.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::MFCcontrol.Settings1.Default, "MFC2maxRange", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.MFC2maxFlow.Location = new System.Drawing.Point(230, 81);
-            this.MFC2maxFlow.Margin = new System.Windows.Forms.Padding(8);
-            this.MFC2maxFlow.Name = "MFC2maxFlow";
-            this.MFC2maxFlow.Size = new System.Drawing.Size(32, 17);
-            this.MFC2maxFlow.TabIndex = 21;
-            this.MFC2maxFlow.Text = global::MFCcontrol.Settings1.Default.MFC2maxRange;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::MFCcontrol.Settings1.Default, "MFC2Gas", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.label8.Location = new System.Drawing.Point(53, 81);
-            this.label8.Margin = new System.Windows.Forms.Padding(8);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(63, 17);
-            this.label8.TabIndex = 24;
-            this.label8.Text = global::MFCcontrol.Settings1.Default.MFC2Gas;
-            // 
-            // MFC2checkBox
-            // 
-            this.MFC2checkBox.AutoSize = true;
-            this.MFC2checkBox.Checked = global::MFCcontrol.Settings1.Default.MFC2enable;
-            this.MFC2checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.MFC2checkBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::MFCcontrol.Settings1.Default, "MFC2enable", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.MFC2checkBox.Location = new System.Drawing.Point(159, 81);
-            this.MFC2checkBox.Margin = new System.Windows.Forms.Padding(8);
-            this.MFC2checkBox.Name = "MFC2checkBox";
-            this.MFC2checkBox.Size = new System.Drawing.Size(18, 17);
-            this.MFC2checkBox.TabIndex = 16;
-            this.MFC2checkBox.UseVisualStyleBackColor = true;
             // 
             // label9
             // 
@@ -499,7 +269,7 @@
             this.label9.Location = new System.Drawing.Point(456, 8);
             this.label9.Margin = new System.Windows.Forms.Padding(8);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(31, 11);
+            this.label9.Size = new System.Drawing.Size(31, 13);
             this.label9.TabIndex = 26;
             this.label9.Text = "Plot?";
             // 
@@ -510,22 +280,9 @@
             this.label10.Location = new System.Drawing.Point(376, 8);
             this.label10.Margin = new System.Windows.Forms.Padding(8);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(56, 11);
+            this.label10.Size = new System.Drawing.Size(56, 13);
             this.label10.TabIndex = 29;
             this.label10.Text = "Pres. Flow";
-            // 
-            // MFC1checkBox
-            // 
-            this.MFC1checkBox.AutoSize = true;
-            this.MFC1checkBox.Checked = global::MFCcontrol.Settings1.Default.MFC1enable;
-            this.MFC1checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.MFC1checkBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::MFCcontrol.Settings1.Default, "MFC1enable", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.MFC1checkBox.Location = new System.Drawing.Point(159, 35);
-            this.MFC1checkBox.Margin = new System.Windows.Forms.Padding(8);
-            this.MFC1checkBox.Name = "MFC1checkBox";
-            this.MFC1checkBox.Size = new System.Drawing.Size(18, 17);
-            this.MFC1checkBox.TabIndex = 15;
-            this.MFC1checkBox.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
@@ -534,22 +291,9 @@
             this.label5.Location = new System.Drawing.Point(230, 8);
             this.label5.Margin = new System.Windows.Forms.Padding(8);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(52, 11);
+            this.label5.Size = new System.Drawing.Size(52, 13);
             this.label5.TabIndex = 19;
             this.label5.Text = "Max Flow";
-            // 
-            // mfcPlotCheck1
-            // 
-            this.mfcPlotCheck1.AutoSize = true;
-            this.mfcPlotCheck1.Checked = global::MFCcontrol.Settings1.Default.MFC1PlotEnable;
-            this.mfcPlotCheck1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.mfcPlotCheck1.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::MFCcontrol.Settings1.Default, "MFC1PlotEnable", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.mfcPlotCheck1.Location = new System.Drawing.Point(456, 35);
-            this.mfcPlotCheck1.Margin = new System.Windows.Forms.Padding(8);
-            this.mfcPlotCheck1.Name = "mfcPlotCheck1";
-            this.mfcPlotCheck1.Size = new System.Drawing.Size(18, 17);
-            this.mfcPlotCheck1.TabIndex = 27;
-            this.mfcPlotCheck1.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
@@ -558,31 +302,9 @@
             this.label6.Location = new System.Drawing.Point(53, 8);
             this.label6.Margin = new System.Windows.Forms.Padding(8);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(26, 11);
+            this.label6.Size = new System.Drawing.Size(26, 13);
             this.label6.TabIndex = 22;
             this.label6.Text = "Gas";
-            // 
-            // mfcPlotCheck3
-            // 
-            this.mfcPlotCheck3.AutoSize = true;
-            this.mfcPlotCheck3.Checked = global::MFCcontrol.Settings1.Default.MFC3PlotEnable;
-            this.mfcPlotCheck3.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::MFCcontrol.Settings1.Default, "MFC3PlotEnable", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.mfcPlotCheck3.Location = new System.Drawing.Point(456, 123);
-            this.mfcPlotCheck3.Margin = new System.Windows.Forms.Padding(8);
-            this.mfcPlotCheck3.Name = "mfcPlotCheck3";
-            this.mfcPlotCheck3.Size = new System.Drawing.Size(18, 17);
-            this.mfcPlotCheck3.TabIndex = 41;
-            this.mfcPlotCheck3.UseVisualStyleBackColor = true;
-            // 
-            // mfc3TextBox
-            // 
-            this.mfc3TextBox.DecimalPlaces = 2;
-            this.mfc3TextBox.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.mfc3TextBox.Location = new System.Drawing.Point(299, 123);
-            this.mfc3TextBox.Margin = new System.Windows.Forms.Padding(8);
-            this.mfc3TextBox.Name = "mfc3TextBox";
-            this.mfc3TextBox.Size = new System.Drawing.Size(54, 22);
-            this.mfc3TextBox.TabIndex = 44;
             // 
             // configMFCsButton
             // 
@@ -832,12 +554,51 @@
             this.ke648xStart.UseVisualStyleBackColor = true;
             this.ke648xStart.Click += new System.EventHandler(this.ke648xStart_Click);
             // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.mfcControl4, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.mfcControl1, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.mfcControl2, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.mfcControl3, 0, 2);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 75);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 4;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(498, 174);
+            this.tableLayoutPanel2.TabIndex = 36;
+            // 
             // mfcControl4
             // 
-            this.mfcControl4.Location = new System.Drawing.Point(3, 204);
+            this.mfcControl4.Location = new System.Drawing.Point(3, 132);
             this.mfcControl4.Name = "mfcControl4";
-            this.mfcControl4.Size = new System.Drawing.Size(487, 45);
+            this.mfcControl4.Size = new System.Drawing.Size(487, 39);
             this.mfcControl4.TabIndex = 35;
+            // 
+            // mfcControl1
+            // 
+            this.mfcControl1.Location = new System.Drawing.Point(3, 3);
+            this.mfcControl1.Name = "mfcControl1";
+            this.mfcControl1.Size = new System.Drawing.Size(492, 37);
+            this.mfcControl1.TabIndex = 36;
+            // 
+            // mfcControl2
+            // 
+            this.mfcControl2.Location = new System.Drawing.Point(3, 46);
+            this.mfcControl2.Name = "mfcControl2";
+            this.mfcControl2.Size = new System.Drawing.Size(492, 31);
+            this.mfcControl2.TabIndex = 37;
+            // 
+            // mfcControl3
+            // 
+            this.mfcControl3.Location = new System.Drawing.Point(3, 89);
+            this.mfcControl3.Name = "mfcControl3";
+            this.mfcControl3.Size = new System.Drawing.Size(492, 33);
+            this.mfcControl3.TabIndex = 38;
             // 
             // Form1
             // 
@@ -859,15 +620,13 @@
             this.panel1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.mfc2TextBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mfc1TextBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mfc3TextBox)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.samplesToResetUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.graphUpdateUDbox)).EndInit();
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -881,30 +640,16 @@
         private System.Windows.Forms.Button loadFlowsButton;
         private System.Windows.Forms.Button viewFlowRecipe;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.Label mfc2Display;
-        private System.Windows.Forms.Label mfc1Display;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.CheckBox MFC1checkBox;
-        private System.Windows.Forms.CheckBox MFC2checkBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label MFC1maxLabel;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button configMFCsButton;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.CheckBox mfcPlotCheck1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.CheckBox mfcPlotCheck2;
-        private System.Windows.Forms.TextBox mfcPresFlowBox2;
-        private System.Windows.Forms.NumericUpDown mfc2TextBox;
-        private System.Windows.Forms.TextBox mfcPresFlowBox1;
-        private System.Windows.Forms.NumericUpDown mfc1TextBox;
-        private System.Windows.Forms.Label MFC2maxFlow;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button resetGraphButton;
@@ -916,14 +661,7 @@
         private System.Windows.Forms.NumericUpDown samplesToResetUpDown;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.CheckBox MFC3checkBox;
-        private System.Windows.Forms.CheckBox mfcPlotCheck3;
-        private System.Windows.Forms.TextBox mfcPresFlowBox3;
-        private System.Windows.Forms.NumericUpDown mfc3TextBox;
-        private System.Windows.Forms.Label MFC3maxFlow;
         private System.Windows.Forms.Button exitRecipeButton;
         private System.Windows.Forms.CheckBox recipePauseCheckbox;
         private System.Windows.Forms.Label label21;
@@ -933,6 +671,10 @@
         private System.Windows.Forms.TextBox nextRecipeTimeEventBox;
         private System.Windows.Forms.Button ke648xStart;
         private MFCcontrolTemplate mfcControl4;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private MFCcontrolTemplate mfcControl1;
+        private MFCcontrolTemplate mfcControl2;
+        private MFCcontrolTemplate mfcControl3;
         
     }
 }

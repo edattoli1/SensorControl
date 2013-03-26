@@ -77,14 +77,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GraphAsync1.exe" size="65536">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GraphAsync1.exe" size="61440">
       <assemblyIdentity name="GraphAsync1" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>0WVyOU9cfl15B/rL0Rx4Ov5E0A45ytSijQqjo+cmwAs=</dsig:DigestValue>
+        <dsig:DigestValue>4mIJLaDGspa6mk/YXbXopkRqNEs8qvE35T54rztIHPM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
