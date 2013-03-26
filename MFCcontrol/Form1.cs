@@ -62,6 +62,7 @@ namespace MFCcontrol
             //Used for Drawing Rows in MFC table
             tableLayoutPanel1.CellPaint += tableLayoutPanel_CellPaint;
             tableLayoutPanel2.CellPaint += tableLayoutPanel_CellPaint;
+            tableLayoutPanel3.CellPaint += tableLayoutPanel_CellPaint;
 
             // Initialized Saved Settings Values Into Form
 

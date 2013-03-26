@@ -322,5 +322,29 @@ namespace MFCcontrol {
                 this["mfcMainControlEnable"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Dev2/ao0")]
+        public string sensorVdsDaq {
+            get {
+                return ((string)(this["sensorVdsDaq"]));
+            }
+            set {
+                this["sensorVdsDaq"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Dev2/ao1")]
+        public string sensorGateDaq {
+            get {
+                return ((string)(this["sensorGateDaq"]));
+            }
+            set {
+                this["sensorGateDaq"] = value;
+            }
+        }
     }
 }
