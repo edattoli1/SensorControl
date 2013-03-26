@@ -674,22 +674,7 @@ namespace MFCcontrol
             this.viewFlowRecipe.Enabled = true;
         }
 
-        static bool FileInUse(string path)
-        {
-            try
-            {
-                using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
-                {
-                    var test = fs.CanWrite;
-                }
-                return false;
-            }
-            catch (IOException ex)
-            {
-                System.Windows.Forms.MessageBox.Show("File Access Exception " + ex.Message);
-                return true;
-            }
-        }
+
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -751,15 +736,6 @@ namespace MFCcontrol
         }
         
 
-        //Used for Drawing Rows in MFC Table
-        private void tableLayoutPanel_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
-        {
-            e.Graphics.DrawLine(Pens.Black, e.CellBounds.Location, new Point(e.CellBounds.Right, e.CellBounds.Top));
-        }
-
-
-
-
         private void resetGraphButton_Click(object sender, EventArgs e)
         {
             chart1.Series[0].Points.Clear();
@@ -767,12 +743,16 @@ namespace MFCcontrol
 
         }
 
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        private void graphUpdateUD_ValueChanged(object sender, EventArgs e)
         {
             //On Startup this value is 0, in this case don't overwritten saved GraphTimeUpdate value
             if (graphUpdateUDbox.Value != 0)
+            {
                 Settings1.Default.GraphTimeUpdateMS = Convert.ToInt32(graphUpdateUDbox.Value * 1000);
+                Settings1.Default.ADacquireTime_ms = Convert.ToInt32(graphUpdateUDbox.Value * 1000);
+            }
 
+            timerADacquire.SetInterval(Settings1.Default.ADacquireTime_ms);
             timerADgraph.SetInterval(Settings1.Default.GraphTimeUpdateMS);
             Settings1.Default.Save();
         }
@@ -851,6 +831,16 @@ namespace MFCcontrol
             }
         }
 
+
+
+        private void ke648xStart_Click(object sender, EventArgs e)
+        {
+            //PicoAmmForm = new Ke648xGUI();
+        }
+
+
+        //Helper Functions
+
         private void DaqOutputProblem()
         {
             string messageBoxText = "Do you want to exit?";
@@ -860,11 +850,28 @@ namespace MFCcontrol
                 Environment.Exit(0);
         }
 
-        private void ke648xStart_Click(object sender, EventArgs e)
+        static bool FileInUse(string path)
         {
-            //PicoAmmForm = new Ke648xGUI();
+            try
+            {
+                using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
+                {
+                    var test = fs.CanWrite;
+                }
+                return false;
+            }
+            catch (IOException ex)
+            {
+                System.Windows.Forms.MessageBox.Show("File Access Exception " + ex.Message);
+                return true;
+            }
         }
 
+        //Used for Drawing Rows in MFC Table
+        private void tableLayoutPanel_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
+        {
+            e.Graphics.DrawLine(Pens.Black, e.CellBounds.Location, new Point(e.CellBounds.Right, e.CellBounds.Top));
+        }
 
 
     }

@@ -533,7 +533,7 @@
             0,
             0,
             65536});
-            this.graphUpdateUDbox.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            this.graphUpdateUDbox.ValueChanged += new System.EventHandler(this.graphUpdateUD_ValueChanged);
             // 
             // label12
             // 
@@ -604,7 +604,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(950, 809);
+            this.ClientSize = new System.Drawing.Size(950, 649);
             this.Controls.Add(this.ke648xStart);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
