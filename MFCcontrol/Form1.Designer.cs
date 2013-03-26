@@ -1,4 +1,4 @@
-﻿namespace GraphAsync1
+﻿namespace MFCcontrol
 {
     partial class Form1
     {
@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.timeElapsedBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -48,10 +48,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.MFC4maxFlow = new System.Windows.Forms.Label();
             this.MFC3maxFlow = new System.Windows.Forms.Label();
             this.mfcPresFlowBox3 = new System.Windows.Forms.TextBox();
-            this.mfcPlotCheck4 = new System.Windows.Forms.CheckBox();
             this.MFC3checkBox = new System.Windows.Forms.CheckBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -72,13 +70,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.mfcPlotCheck1 = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.MFC4checkBox = new System.Windows.Forms.CheckBox();
             this.mfcPlotCheck3 = new System.Windows.Forms.CheckBox();
-            this.mfcPresFlowBox4 = new System.Windows.Forms.TextBox();
             this.mfc3TextBox = new System.Windows.Forms.NumericUpDown();
-            this.mfc4TextBox = new System.Windows.Forms.NumericUpDown();
             this.configMFCsButton = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -99,13 +92,13 @@
             this.graphUpdateUDbox = new System.Windows.Forms.NumericUpDown();
             this.label12 = new System.Windows.Forms.Label();
             this.ke648xStart = new System.Windows.Forms.Button();
+            this.mfcControl4 = new MFCcontrol.MFCcontrolTemplate();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mfc2TextBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mfc1TextBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mfc3TextBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mfc4TextBox)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.samplesToResetUpDown)).BeginInit();
@@ -114,42 +107,42 @@
             // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(19, 7);
             this.chart1.Name = "chart1";
-            series5.BorderWidth = 3;
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series5.CustomProperties = "IsXAxisQuantitative=False";
-            series5.Legend = "Legend1";
-            series5.Name = "MFC1";
-            series5.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-            series5.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-            series6.BorderWidth = 3;
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series6.CustomProperties = "IsXAxisQuantitative=False";
-            series6.Legend = "Legend1";
-            series6.Name = "MFC2";
-            series6.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-            series6.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-            series7.BorderWidth = 3;
-            series7.ChartArea = "ChartArea1";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series7.Legend = "Legend1";
-            series7.Name = "MFC3";
-            series8.BorderWidth = 3;
-            series8.ChartArea = "ChartArea1";
-            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series8.Legend = "Legend1";
-            series8.Name = "MFC4";
-            this.chart1.Series.Add(series5);
-            this.chart1.Series.Add(series6);
-            this.chart1.Series.Add(series7);
-            this.chart1.Series.Add(series8);
+            series1.BorderWidth = 3;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.CustomProperties = "IsXAxisQuantitative=False";
+            series1.Legend = "Legend1";
+            series1.Name = "MFC1";
+            series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            series1.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            series2.BorderWidth = 3;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.CustomProperties = "IsXAxisQuantitative=False";
+            series2.Legend = "Legend1";
+            series2.Name = "MFC2";
+            series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            series2.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            series3.BorderWidth = 3;
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Legend = "Legend1";
+            series3.Name = "MFC3";
+            series4.BorderWidth = 3;
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Legend = "Legend1";
+            series4.Name = "MFC4";
+            this.chart1.Series.Add(series1);
+            this.chart1.Series.Add(series2);
+            this.chart1.Series.Add(series3);
+            this.chart1.Series.Add(series4);
             this.chart1.Size = new System.Drawing.Size(651, 300);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -237,7 +230,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.01739F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(10, 10);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(120, 20);
+            this.label2.Size = new System.Drawing.Size(125, 20);
             this.label2.TabIndex = 12;
             this.label2.Text = "MFC STATUS";
             // 
@@ -266,6 +259,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.mfcControl4);
             this.panel1.Controls.Add(this.tableLayoutPanel1);
             this.panel1.Controls.Add(this.configMFCsButton);
             this.panel1.Controls.Add(this.label2);
@@ -284,10 +278,8 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 77F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.MFC4maxFlow, 3, 4);
             this.tableLayoutPanel1.Controls.Add(this.MFC3maxFlow, 3, 3);
             this.tableLayoutPanel1.Controls.Add(this.mfcPresFlowBox3, 5, 3);
-            this.tableLayoutPanel1.Controls.Add(this.mfcPlotCheck4, 6, 4);
             this.tableLayoutPanel1.Controls.Add(this.MFC3checkBox, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.label19, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.label16, 0, 0);
@@ -312,45 +304,28 @@
             this.tableLayoutPanel1.Controls.Add(this.mfc2Display, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.mfcPlotCheck1, 6, 1);
             this.tableLayoutPanel1.Controls.Add(this.label6, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label17, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.label20, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.MFC4checkBox, 2, 4);
             this.tableLayoutPanel1.Controls.Add(this.mfcPlotCheck3, 6, 3);
-            this.tableLayoutPanel1.Controls.Add(this.mfcPresFlowBox4, 5, 4);
             this.tableLayoutPanel1.Controls.Add(this.mfc3TextBox, 4, 3);
-            this.tableLayoutPanel1.Controls.Add(this.mfc4TextBox, 4, 4);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 43);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 5;
+            this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(498, 206);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(498, 156);
             this.tableLayoutPanel1.TabIndex = 34;
-            // 
-            // MFC4maxFlow
-            // 
-            this.MFC4maxFlow.AutoSize = true;
-            this.MFC4maxFlow.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::GraphAsync1.Settings1.Default, "MFC4maxRange", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.MFC4maxFlow.Location = new System.Drawing.Point(230, 164);
-            this.MFC4maxFlow.Margin = new System.Windows.Forms.Padding(8);
-            this.MFC4maxFlow.Name = "MFC4maxFlow";
-            this.MFC4maxFlow.Size = new System.Drawing.Size(32, 17);
-            this.MFC4maxFlow.TabIndex = 47;
-            this.MFC4maxFlow.Text = global::GraphAsync1.Settings1.Default.MFC4maxRange;
             // 
             // MFC3maxFlow
             // 
             this.MFC3maxFlow.AutoSize = true;
-            this.MFC3maxFlow.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::GraphAsync1.Settings1.Default, "MFC3maxRange", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.MFC3maxFlow.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::MFCcontrol.Settings1.Default, "MFC3maxRange", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.MFC3maxFlow.Location = new System.Drawing.Point(230, 123);
             this.MFC3maxFlow.Margin = new System.Windows.Forms.Padding(8);
             this.MFC3maxFlow.Name = "MFC3maxFlow";
             this.MFC3maxFlow.Size = new System.Drawing.Size(32, 17);
             this.MFC3maxFlow.TabIndex = 46;
-            this.MFC3maxFlow.Text = global::GraphAsync1.Settings1.Default.MFC3maxRange;
+            this.MFC3maxFlow.Text = global::MFCcontrol.Settings1.Default.MFC3maxRange;
             // 
             // mfcPresFlowBox3
             // 
@@ -362,42 +337,28 @@
             this.mfcPresFlowBox3.Size = new System.Drawing.Size(45, 22);
             this.mfcPresFlowBox3.TabIndex = 32;
             // 
-            // mfcPlotCheck4
-            // 
-            this.mfcPlotCheck4.AutoSize = true;
-            this.mfcPlotCheck4.Checked = global::GraphAsync1.Settings1.Default.MFC4PlotEnable;
-            this.mfcPlotCheck4.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::GraphAsync1.Settings1.Default, "MFC4PlotEnable", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.mfcPlotCheck4.Location = new System.Drawing.Point(456, 164);
-            this.mfcPlotCheck4.Margin = new System.Windows.Forms.Padding(8);
-            this.mfcPlotCheck4.Name = "mfcPlotCheck4";
-            this.mfcPlotCheck4.Size = new System.Drawing.Size(15, 14);
-            this.mfcPlotCheck4.TabIndex = 42;
-            this.mfcPlotCheck4.UseVisualStyleBackColor = true;
-            this.mfcPlotCheck4.CheckedChanged += new System.EventHandler(this.mfcPlotCheck4_CheckedChanged);
-            // 
             // MFC3checkBox
             // 
             this.MFC3checkBox.AutoSize = true;
-            this.MFC3checkBox.Checked = global::GraphAsync1.Settings1.Default.MFC3enable;
-            this.MFC3checkBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::GraphAsync1.Settings1.Default, "MFC3enable", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.MFC3checkBox.Checked = global::MFCcontrol.Settings1.Default.MFC3enable;
+            this.MFC3checkBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::MFCcontrol.Settings1.Default, "MFC3enable", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.MFC3checkBox.Location = new System.Drawing.Point(159, 123);
             this.MFC3checkBox.Margin = new System.Windows.Forms.Padding(8);
             this.MFC3checkBox.Name = "MFC3checkBox";
-            this.MFC3checkBox.Size = new System.Drawing.Size(15, 14);
+            this.MFC3checkBox.Size = new System.Drawing.Size(18, 17);
             this.MFC3checkBox.TabIndex = 39;
             this.MFC3checkBox.UseVisualStyleBackColor = true;
-            this.MFC3checkBox.CheckedChanged += new System.EventHandler(this.MFC3checkBox_CheckedChanged);
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::GraphAsync1.Settings1.Default, "MFC3Gas", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.label19.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::MFCcontrol.Settings1.Default, "MFC3Gas", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.label19.Location = new System.Drawing.Point(53, 123);
             this.label19.Margin = new System.Windows.Forms.Padding(8);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(63, 17);
             this.label19.TabIndex = 37;
-            this.label19.Text = global::GraphAsync1.Settings1.Default.MFC3Gas;
+            this.label19.Text = global::MFCcontrol.Settings1.Default.MFC3Gas;
             // 
             // label16
             // 
@@ -424,16 +385,15 @@
             // mfcPlotCheck2
             // 
             this.mfcPlotCheck2.AutoSize = true;
-            this.mfcPlotCheck2.Checked = global::GraphAsync1.Settings1.Default.MFC2PlotEnable;
+            this.mfcPlotCheck2.Checked = global::MFCcontrol.Settings1.Default.MFC2PlotEnable;
             this.mfcPlotCheck2.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.mfcPlotCheck2.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::GraphAsync1.Settings1.Default, "MFC2PlotEnable", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.mfcPlotCheck2.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::MFCcontrol.Settings1.Default, "MFC2PlotEnable", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.mfcPlotCheck2.Location = new System.Drawing.Point(456, 81);
             this.mfcPlotCheck2.Margin = new System.Windows.Forms.Padding(8);
             this.mfcPlotCheck2.Name = "mfcPlotCheck2";
-            this.mfcPlotCheck2.Size = new System.Drawing.Size(15, 14);
+            this.mfcPlotCheck2.Size = new System.Drawing.Size(18, 17);
             this.mfcPlotCheck2.TabIndex = 28;
             this.mfcPlotCheck2.UseVisualStyleBackColor = true;
-            this.mfcPlotCheck2.CheckedChanged += new System.EventHandler(this.mfcPlotCheck2_CheckedChanged);
             // 
             // mfcPresFlowBox2
             // 
@@ -454,7 +414,6 @@
             this.mfc2TextBox.Name = "mfc2TextBox";
             this.mfc2TextBox.Size = new System.Drawing.Size(54, 22);
             this.mfc2TextBox.TabIndex = 32;
-            this.mfc2TextBox.ValueChanged += new System.EventHandler(this.mfc2TextBox_ValueChanged);
             // 
             // mfcPresFlowBox1
             // 
@@ -475,65 +434,63 @@
             this.mfc1TextBox.Name = "mfc1TextBox";
             this.mfc1TextBox.Size = new System.Drawing.Size(54, 22);
             this.mfc1TextBox.TabIndex = 16;
-            this.mfc1TextBox.ValueChanged += new System.EventHandler(this.mfc1TextBox_ValueChanged);
             // 
             // MFC1maxLabel
             // 
             this.MFC1maxLabel.AutoSize = true;
-            this.MFC1maxLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::GraphAsync1.Settings1.Default, "MFC1maxRange", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.MFC1maxLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::MFCcontrol.Settings1.Default, "MFC1maxRange", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.MFC1maxLabel.Location = new System.Drawing.Point(230, 35);
             this.MFC1maxLabel.Margin = new System.Windows.Forms.Padding(8);
             this.MFC1maxLabel.Name = "MFC1maxLabel";
             this.MFC1maxLabel.Size = new System.Drawing.Size(40, 17);
             this.MFC1maxLabel.TabIndex = 20;
-            this.MFC1maxLabel.Text = global::GraphAsync1.Settings1.Default.MFC1maxRange;
+            this.MFC1maxLabel.Text = global::MFCcontrol.Settings1.Default.MFC1maxRange;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::GraphAsync1.Settings1.Default, "MFC1Gas", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.label7.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::MFCcontrol.Settings1.Default, "MFC1Gas", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.label7.Location = new System.Drawing.Point(53, 35);
             this.label7.Margin = new System.Windows.Forms.Padding(8);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(25, 17);
             this.label7.TabIndex = 23;
-            this.label7.Text = global::GraphAsync1.Settings1.Default.MFC1Gas;
+            this.label7.Text = global::MFCcontrol.Settings1.Default.MFC1Gas;
             // 
             // MFC2maxFlow
             // 
             this.MFC2maxFlow.AutoSize = true;
-            this.MFC2maxFlow.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::GraphAsync1.Settings1.Default, "MFC2maxRange", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.MFC2maxFlow.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::MFCcontrol.Settings1.Default, "MFC2maxRange", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.MFC2maxFlow.Location = new System.Drawing.Point(230, 81);
             this.MFC2maxFlow.Margin = new System.Windows.Forms.Padding(8);
             this.MFC2maxFlow.Name = "MFC2maxFlow";
             this.MFC2maxFlow.Size = new System.Drawing.Size(32, 17);
             this.MFC2maxFlow.TabIndex = 21;
-            this.MFC2maxFlow.Text = global::GraphAsync1.Settings1.Default.MFC2maxRange;
+            this.MFC2maxFlow.Text = global::MFCcontrol.Settings1.Default.MFC2maxRange;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::GraphAsync1.Settings1.Default, "MFC2Gas", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.label8.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::MFCcontrol.Settings1.Default, "MFC2Gas", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.label8.Location = new System.Drawing.Point(53, 81);
             this.label8.Margin = new System.Windows.Forms.Padding(8);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(63, 17);
             this.label8.TabIndex = 24;
-            this.label8.Text = global::GraphAsync1.Settings1.Default.MFC2Gas;
+            this.label8.Text = global::MFCcontrol.Settings1.Default.MFC2Gas;
             // 
             // MFC2checkBox
             // 
             this.MFC2checkBox.AutoSize = true;
-            this.MFC2checkBox.Checked = global::GraphAsync1.Settings1.Default.MFC2enable;
+            this.MFC2checkBox.Checked = global::MFCcontrol.Settings1.Default.MFC2enable;
             this.MFC2checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.MFC2checkBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::GraphAsync1.Settings1.Default, "MFC2enable", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.MFC2checkBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::MFCcontrol.Settings1.Default, "MFC2enable", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.MFC2checkBox.Location = new System.Drawing.Point(159, 81);
             this.MFC2checkBox.Margin = new System.Windows.Forms.Padding(8);
             this.MFC2checkBox.Name = "MFC2checkBox";
-            this.MFC2checkBox.Size = new System.Drawing.Size(15, 14);
+            this.MFC2checkBox.Size = new System.Drawing.Size(18, 17);
             this.MFC2checkBox.TabIndex = 16;
             this.MFC2checkBox.UseVisualStyleBackColor = true;
-            this.MFC2checkBox.CheckedChanged += new System.EventHandler(this.MFC2checkBox_CheckedChanged);
             // 
             // label9
             // 
@@ -560,16 +517,15 @@
             // MFC1checkBox
             // 
             this.MFC1checkBox.AutoSize = true;
-            this.MFC1checkBox.Checked = global::GraphAsync1.Settings1.Default.MFC1enable;
+            this.MFC1checkBox.Checked = global::MFCcontrol.Settings1.Default.MFC1enable;
             this.MFC1checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.MFC1checkBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::GraphAsync1.Settings1.Default, "MFC1enable", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.MFC1checkBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::MFCcontrol.Settings1.Default, "MFC1enable", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.MFC1checkBox.Location = new System.Drawing.Point(159, 35);
             this.MFC1checkBox.Margin = new System.Windows.Forms.Padding(8);
             this.MFC1checkBox.Name = "MFC1checkBox";
-            this.MFC1checkBox.Size = new System.Drawing.Size(15, 14);
+            this.MFC1checkBox.Size = new System.Drawing.Size(18, 17);
             this.MFC1checkBox.TabIndex = 15;
             this.MFC1checkBox.UseVisualStyleBackColor = true;
-            this.MFC1checkBox.CheckedChanged += new System.EventHandler(this.MFC1checkBox_CheckedChanged);
             // 
             // label5
             // 
@@ -585,16 +541,15 @@
             // mfcPlotCheck1
             // 
             this.mfcPlotCheck1.AutoSize = true;
-            this.mfcPlotCheck1.Checked = global::GraphAsync1.Settings1.Default.MFC1PlotEnable;
+            this.mfcPlotCheck1.Checked = global::MFCcontrol.Settings1.Default.MFC1PlotEnable;
             this.mfcPlotCheck1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.mfcPlotCheck1.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::GraphAsync1.Settings1.Default, "MFC1PlotEnable", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.mfcPlotCheck1.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::MFCcontrol.Settings1.Default, "MFC1PlotEnable", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.mfcPlotCheck1.Location = new System.Drawing.Point(456, 35);
             this.mfcPlotCheck1.Margin = new System.Windows.Forms.Padding(8);
             this.mfcPlotCheck1.Name = "mfcPlotCheck1";
-            this.mfcPlotCheck1.Size = new System.Drawing.Size(15, 14);
+            this.mfcPlotCheck1.Size = new System.Drawing.Size(18, 17);
             this.mfcPlotCheck1.TabIndex = 27;
             this.mfcPlotCheck1.UseVisualStyleBackColor = true;
-            this.mfcPlotCheck1.CheckedChanged += new System.EventHandler(this.mfcPlotCheck1_CheckedChanged);
             // 
             // label6
             // 
@@ -607,63 +562,17 @@
             this.label6.TabIndex = 22;
             this.label6.Text = "Gas";
             // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.label17.Location = new System.Drawing.Point(8, 164);
-            this.label17.Margin = new System.Windows.Forms.Padding(8);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(16, 17);
-            this.label17.TabIndex = 36;
-            this.label17.Text = "4";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::GraphAsync1.Settings1.Default, "MFC4Gas", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.label20.Location = new System.Drawing.Point(53, 164);
-            this.label20.Margin = new System.Windows.Forms.Padding(8);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(63, 17);
-            this.label20.TabIndex = 38;
-            this.label20.Text = global::GraphAsync1.Settings1.Default.MFC4Gas;
-            // 
-            // MFC4checkBox
-            // 
-            this.MFC4checkBox.AutoSize = true;
-            this.MFC4checkBox.Checked = global::GraphAsync1.Settings1.Default.MFC4enable;
-            this.MFC4checkBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::GraphAsync1.Settings1.Default, "MFC4enable", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.MFC4checkBox.Location = new System.Drawing.Point(159, 164);
-            this.MFC4checkBox.Margin = new System.Windows.Forms.Padding(8);
-            this.MFC4checkBox.Name = "MFC4checkBox";
-            this.MFC4checkBox.Size = new System.Drawing.Size(15, 14);
-            this.MFC4checkBox.TabIndex = 40;
-            this.MFC4checkBox.UseVisualStyleBackColor = true;
-            this.MFC4checkBox.CheckedChanged += new System.EventHandler(this.MFC4checkBox_CheckedChanged);
-            // 
             // mfcPlotCheck3
             // 
             this.mfcPlotCheck3.AutoSize = true;
-            this.mfcPlotCheck3.Checked = global::GraphAsync1.Settings1.Default.MFC3PlotEnable;
-            this.mfcPlotCheck3.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::GraphAsync1.Settings1.Default, "MFC3PlotEnable", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.mfcPlotCheck3.Checked = global::MFCcontrol.Settings1.Default.MFC3PlotEnable;
+            this.mfcPlotCheck3.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::MFCcontrol.Settings1.Default, "MFC3PlotEnable", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.mfcPlotCheck3.Location = new System.Drawing.Point(456, 123);
             this.mfcPlotCheck3.Margin = new System.Windows.Forms.Padding(8);
             this.mfcPlotCheck3.Name = "mfcPlotCheck3";
-            this.mfcPlotCheck3.Size = new System.Drawing.Size(15, 14);
+            this.mfcPlotCheck3.Size = new System.Drawing.Size(18, 17);
             this.mfcPlotCheck3.TabIndex = 41;
             this.mfcPlotCheck3.UseVisualStyleBackColor = true;
-            this.mfcPlotCheck3.CheckedChanged += new System.EventHandler(this.mfcPlotCheck3_CheckedChanged);
-            // 
-            // mfcPresFlowBox4
-            // 
-            this.mfcPresFlowBox4.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.mfcPresFlowBox4.Enabled = false;
-            this.mfcPresFlowBox4.Location = new System.Drawing.Point(376, 164);
-            this.mfcPresFlowBox4.Margin = new System.Windows.Forms.Padding(8);
-            this.mfcPresFlowBox4.Name = "mfcPresFlowBox4";
-            this.mfcPresFlowBox4.Size = new System.Drawing.Size(45, 22);
-            this.mfcPresFlowBox4.TabIndex = 43;
             // 
             // mfc3TextBox
             // 
@@ -674,16 +583,6 @@
             this.mfc3TextBox.Name = "mfc3TextBox";
             this.mfc3TextBox.Size = new System.Drawing.Size(54, 22);
             this.mfc3TextBox.TabIndex = 44;
-            // 
-            // mfc4TextBox
-            // 
-            this.mfc4TextBox.DecimalPlaces = 2;
-            this.mfc4TextBox.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.mfc4TextBox.Location = new System.Drawing.Point(299, 164);
-            this.mfc4TextBox.Margin = new System.Windows.Forms.Padding(8);
-            this.mfc4TextBox.Name = "mfc4TextBox";
-            this.mfc4TextBox.Size = new System.Drawing.Size(54, 22);
-            this.mfc4TextBox.TabIndex = 45;
             // 
             // configMFCsButton
             // 
@@ -702,7 +601,7 @@
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.01739F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(12, 10);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(163, 20);
+            this.label11.Size = new System.Drawing.Size(171, 20);
             this.label11.TabIndex = 16;
             this.label11.Text = "RECIPE CONTROL";
             // 
@@ -768,7 +667,7 @@
             this.recipePauseCheckbox.AutoSize = true;
             this.recipePauseCheckbox.Location = new System.Drawing.Point(67, 170);
             this.recipePauseCheckbox.Name = "recipePauseCheckbox";
-            this.recipePauseCheckbox.Size = new System.Drawing.Size(15, 14);
+            this.recipePauseCheckbox.Size = new System.Drawing.Size(18, 17);
             this.recipePauseCheckbox.TabIndex = 19;
             this.recipePauseCheckbox.UseVisualStyleBackColor = true;
             this.recipePauseCheckbox.CheckedChanged += new System.EventHandler(this.recipePauseCheckbox_CheckedChanged);
@@ -828,7 +727,7 @@
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.01739F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.Location = new System.Drawing.Point(676, 7);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(160, 20);
+            this.label18.Size = new System.Drawing.Size(169, 20);
             this.label18.TabIndex = 25;
             this.label18.Text = "GRAPH CONTROL";
             // 
@@ -871,7 +770,7 @@
             this.AinGraphUpdateBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.AinGraphUpdateBox.Location = new System.Drawing.Point(808, 160);
             this.AinGraphUpdateBox.Name = "AinGraphUpdateBox";
-            this.AinGraphUpdateBox.Size = new System.Drawing.Size(15, 14);
+            this.AinGraphUpdateBox.Size = new System.Drawing.Size(18, 17);
             this.AinGraphUpdateBox.TabIndex = 22;
             this.AinGraphUpdateBox.UseVisualStyleBackColor = true;
             this.AinGraphUpdateBox.CheckedChanged += new System.EventHandler(this.AinGraphUpdateBox_CheckedChanged);
@@ -933,11 +832,18 @@
             this.ke648xStart.UseVisualStyleBackColor = true;
             this.ke648xStart.Click += new System.EventHandler(this.ke648xStart_Click);
             // 
+            // mfcControl4
+            // 
+            this.mfcControl4.Location = new System.Drawing.Point(3, 204);
+            this.mfcControl4.Name = "mfcControl4";
+            this.mfcControl4.Size = new System.Drawing.Size(487, 45);
+            this.mfcControl4.TabIndex = 35;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(949, 651);
+            this.ClientSize = new System.Drawing.Size(950, 809);
             this.Controls.Add(this.ke648xStart);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -956,7 +862,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.mfc2TextBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mfc1TextBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mfc3TextBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mfc4TextBox)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -1012,20 +917,13 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label20;
         private System.Windows.Forms.CheckBox MFC3checkBox;
-        private System.Windows.Forms.CheckBox MFC4checkBox;
-        private System.Windows.Forms.CheckBox mfcPlotCheck4;
         private System.Windows.Forms.CheckBox mfcPlotCheck3;
         private System.Windows.Forms.TextBox mfcPresFlowBox3;
-        private System.Windows.Forms.TextBox mfcPresFlowBox4;
         private System.Windows.Forms.NumericUpDown mfc3TextBox;
-        private System.Windows.Forms.Label MFC4maxFlow;
         private System.Windows.Forms.Label MFC3maxFlow;
-        private System.Windows.Forms.NumericUpDown mfc4TextBox;
         private System.Windows.Forms.Button exitRecipeButton;
         private System.Windows.Forms.CheckBox recipePauseCheckbox;
         private System.Windows.Forms.Label label21;
@@ -1034,6 +932,8 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox nextRecipeTimeEventBox;
         private System.Windows.Forms.Button ke648xStart;
+        private MFCcontrolTemplate mfcControl4;
+        
     }
 }
 

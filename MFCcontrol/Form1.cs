@@ -14,12 +14,11 @@ using System.Runtime;
 //using System.Windows;
 using Ke648x;
 
-namespace GraphAsync1
+namespace MFCcontrol
 {
     public partial class Form1 : Form
     {
         private DataForDaqOutput dataForDaq;
-        private ADstorage ADdata;
         private GenStopwatch watch;
         private GenTimer timerUI;
         private GenTimer timerADgraph;
@@ -33,7 +32,7 @@ namespace GraphAsync1
         private List<double[]> ADoutTableVolts;
         private static double[] currentADin;
         private DaqAction daqInput;
-        private DaqAction daqOutput;
+        public DaqAction daqOutput;
         private int curRow_ADoutTable;
         private bool recipeRunning;
         private bool AinGraphUpdateState;
@@ -115,6 +114,9 @@ namespace GraphAsync1
             
             timeElapsedBox.Text = (watch.GetMsElapsed()/3600.0).ToString();
 
+            // Let MFC Control Panels know that about parent form so they can interact with it
+            mfcControl4.parentForm = this;
+
             chart1.ChartAreas[0].Axes[0].Title = "Time (min)";
             chart1.ChartAreas[0].Axes[1].Title = "MFC Flow (sccm)";
             chart1.Series[0].Name = Settings1.Default.MFC1Gas;
@@ -131,22 +133,19 @@ namespace GraphAsync1
             mfc1TextBox.Value = Convert.ToDecimal(0);
             mfc2TextBox.Value = Convert.ToDecimal(0);
             mfc3TextBox.Value = Convert.ToDecimal(0);
-            mfc4TextBox.Value = Convert.ToDecimal(0); 
+            mfcControl4.SetMFCnumber(4);
+           // mfc4TextBox.Value = Convert.ToDecimal(0); 
 
             mfc1TextBox.Maximum = Convert.ToDecimal(Settings1.Default.MFC1maxRange);
             mfc2TextBox.Maximum = Convert.ToDecimal(Settings1.Default.MFC2maxRange);
             mfc3TextBox.Maximum = Convert.ToDecimal(Settings1.Default.MFC3maxRange);
-            mfc4TextBox.Maximum = Convert.ToDecimal(Settings1.Default.MFC4maxRange);
+           // mfc4TextBox.Maximum = Convert.ToDecimal(Settings1.Default.MFC4maxRange);
 
             MFC1checkBox.Enabled = true;
             MFC2checkBox.Enabled = true;
             MFC3checkBox.Enabled = true;
-            MFC4checkBox.Enabled = true;
+            //MFC4checkBox.Enabled = true;
 
-            mfc1TextBox.Enabled = true;
-            mfc2TextBox.Enabled = true;
-            mfc3TextBox.Enabled = true;
-            mfc4TextBox.Enabled = true;
 
             stateMFCs[0] = Settings1.Default.MFC1enable;
             mfc1TextBox.Enabled = Settings1.Default.MFC1enable ? true : false;
@@ -155,7 +154,7 @@ namespace GraphAsync1
             stateMFCs[2] = Settings1.Default.MFC3enable;
             mfc3TextBox.Enabled = Settings1.Default.MFC3enable ? true : false;
             stateMFCs[3] = Settings1.Default.MFC4enable;
-            mfc4TextBox.Enabled = Settings1.Default.MFC4enable ? true : false;
+            //mfc4TextBox.Enabled = Settings1.Default.MFC4enable ? true : false;
 
             viewFlowRecipe.Enabled = false;
             startButton.Enabled = false;
@@ -212,7 +211,8 @@ namespace GraphAsync1
             mfcPresFlowBox1.Text = DaqAction.GetMFCflowFromVolts(currentADin[0], 1).ToString("0.00");
             mfcPresFlowBox2.Text = DaqAction.GetMFCflowFromVolts(currentADin[1], 2).ToString("0.00");
             mfcPresFlowBox3.Text = DaqAction.GetMFCflowFromVolts(currentADin[2], 3).ToString("0.00");
-            mfcPresFlowBox4.Text = DaqAction.GetMFCflowFromVolts(currentADin[3], 4).ToString("0.00");
+            mfcControl4.UpdatePresFlowBox(DaqAction.GetMFCflowFromVolts(currentADin[3], 4));
+            //mfcPresFlowBox4.Text = DaqAction.GetMFCflowFromVolts(currentADin[3], 4).ToString("0.00");
 
             if (recipeRunning == true)
             {
@@ -235,7 +235,8 @@ namespace GraphAsync1
                 mfc1TextBox.Value = Convert.ToDecimal(presentMFCsetting[0]);
                 mfc2TextBox.Value = Convert.ToDecimal(presentMFCsetting[1]);
                 mfc3TextBox.Value = Convert.ToDecimal(presentMFCsetting[2]);
-                mfc4TextBox.Value = Convert.ToDecimal(presentMFCsetting[3]); 
+                mfcControl4.UpdateSetFlowValue(presentMFCsetting[3]);
+                //mfc4TextBox.Value = Convert.ToDecimal(presentMFCsetting[3]); 
 
 
 
@@ -315,14 +316,18 @@ namespace GraphAsync1
             //Disable users from Changing MFC states
             configMFCsButton.Enabled = false;
             recipePauseCheckbox.Enabled = true;
+
+
+
+            mfcControl4.DisableUserControl();
             mfc1TextBox.Enabled = false;
             mfc2TextBox.Enabled = false;
             mfc3TextBox.Enabled = false;
-            mfc4TextBox.Enabled = false;
+           // mfc4TextBox.Enabled = false;
             MFC1checkBox.Enabled = false;
             MFC2checkBox.Enabled = false;
             MFC3checkBox.Enabled = false;
-            MFC4checkBox.Enabled = false;
+            //MFC4checkBox.Enabled = false;
             startButton.Enabled = false;
             exitRecipeButton.Enabled = true;
 
@@ -616,7 +621,8 @@ namespace GraphAsync1
                 mfc1TextBox.Maximum = Convert.ToDecimal(Settings1.Default.MFC1maxRange);
                 mfc2TextBox.Maximum = Convert.ToDecimal(Settings1.Default.MFC2maxRange);
                 mfc3TextBox.Maximum = Convert.ToDecimal(Settings1.Default.MFC3maxRange);
-                mfc4TextBox.Maximum = Convert.ToDecimal(Settings1.Default.MFC4maxRange);
+                mfcControl4.SetMFCnumber(4);
+              //  mfc4TextBox.Maximum = Convert.ToDecimal(Settings1.Default.MFC4maxRange);
 
                 // Load all rows of recipe Spreadsheet into ADoutTableValues_s
                 // Empty cells are marked translated into -1 (means do nothing)
@@ -714,53 +720,91 @@ namespace GraphAsync1
             mfc1TextBox.Maximum = Convert.ToDecimal(Settings1.Default.MFC1maxRange);
             mfc2TextBox.Maximum = Convert.ToDecimal(Settings1.Default.MFC2maxRange);
             mfc3TextBox.Maximum = Convert.ToDecimal(Settings1.Default.MFC3maxRange);
-            mfc4TextBox.Maximum = Convert.ToDecimal(Settings1.Default.MFC4maxRange);
+            mfcControl4.UpdateConfig();
+            //mfc4TextBox.Maximum = Convert.ToDecimal(Settings1.Default.MFC4maxRange);
             chart1.Series[0].Name = Settings1.Default.MFC1Gas;
             chart1.Series[1].Name = Settings1.Default.MFC2Gas;
             chart1.Series[2].Name = Settings1.Default.MFC3Gas;
             chart1.Series[3].Name = Settings1.Default.MFC4Gas;
         }
 
-        private void mfcPlotCheck1_CheckedChanged(object sender, EventArgs e)
+        public void MfcPlotCheck_CheckedChanged(int MFCnumber, bool checkState)
         {
-            if (mfcPlotCheck1.CheckState.Equals(CheckState.Checked))
-                chart1.Series[0].Enabled = true;
+            if (checkState == true)
+                chart1.Series[MFCnumber-1].Enabled = true;
             else
-                chart1.Series[0].Enabled = false;
+                chart1.Series[MFCnumber - 1].Enabled = false;
 
         }
+        
+        
+        //private void mfcPlotCheck1_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    if (mfcPlotCheck1.CheckState.Equals(CheckState.Checked))
+        //        chart1.Series[0].Enabled = true;
+        //    else
+        //        chart1.Series[0].Enabled = false;
 
-        private void mfcPlotCheck2_CheckedChanged(object sender, EventArgs e)
+        //}
+
+        //private void mfcPlotCheck2_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    if (mfcPlotCheck2.CheckState.Equals(CheckState.Checked))
+        //        chart1.Series[1].Enabled = true;
+        //    else
+        //        chart1.Series[1].Enabled = false;
+        //}
+
+        //private void mfcPlotCheck3_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    if (mfcPlotCheck3.CheckState.Equals(CheckState.Checked))
+        //        chart1.Series[2].Enabled = true;
+        //    else
+        //        chart1.Series[2].Enabled = false;
+        //}
+
+        //private void mfcPlotCheck4_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    if (mfcPlotCheck4.CheckState.Equals(CheckState.Checked))
+        //        chart1.Series[3].Enabled = true;
+        //    else
+        //        chart1.Series[3].Enabled = false;
+        //}
+
+        public void mfcTextBox_ValueChanged(int mfcNumber, decimal valueNew)
         {
-            if (mfcPlotCheck2.CheckState.Equals(CheckState.Checked))
-                chart1.Series[1].Enabled = true;
-            else
-                chart1.Series[1].Enabled = false;
+            double inputValue = DaqAction.GetVoltsFromMFCflow(valueNew.ToString(), mfcNumber);
+
+            switch (mfcNumber)
+            {
+                case 1 :
+                    if (Settings1.Default.MFC1enable == true)
+                        daqOutput.UpdateDaqOut(mfcNumber - 1, inputValue);
+                    break;
+                case 2:
+                    if (Settings1.Default.MFC2enable == true)
+                        daqOutput.UpdateDaqOut(mfcNumber - 1, inputValue);
+                    break;
+                case 3:
+                    if (Settings1.Default.MFC3enable == true)
+                        daqOutput.UpdateDaqOut(mfcNumber - 1, inputValue);
+                    break;
+                case 4:
+                    if (Settings1.Default.MFC4enable == true)
+                        daqOutput.UpdateDaqOut(mfcNumber - 1, inputValue);
+                    break;
+            }
+
+
         }
-
-        private void mfcPlotCheck3_CheckedChanged(object sender, EventArgs e)
-        {
-            if (mfcPlotCheck3.CheckState.Equals(CheckState.Checked))
-                chart1.Series[2].Enabled = true;
-            else
-                chart1.Series[2].Enabled = false;
-        }
-
-        private void mfcPlotCheck4_CheckedChanged(object sender, EventArgs e)
-        {
-            if (mfcPlotCheck4.CheckState.Equals(CheckState.Checked))
-                chart1.Series[3].Enabled = true;
-            else
-                chart1.Series[3].Enabled = false;
-        }
-
-        private void mfc1TextBox_ValueChanged(object sender, EventArgs e)
-        {
-            double inputValue = DaqAction.GetVoltsFromMFCflow(mfc1TextBox.Value.ToString(),1);
+        
+        //private void mfc1TextBox_ValueChanged(object sender, EventArgs e)
+        //{
+        //    double inputValue = DaqAction.GetVoltsFromMFCflow(mfc1TextBox.Value.ToString(),1);
             
-            if (Settings1.Default.MFC1enable == true)
-                daqOutput.UpdateDaqOut(0, inputValue);
-        }
+        //    if (Settings1.Default.MFC1enable == true)
+        //        daqOutput.UpdateDaqOut(0, inputValue);
+        //}
 
 
         //Used for Drawing Rows in MFC Table
@@ -771,78 +815,78 @@ namespace GraphAsync1
 
 
 
-        private void mfc2TextBox_ValueChanged(object sender, EventArgs e)
-        {
-            double inputValue = DaqAction.GetVoltsFromMFCflow(mfc2TextBox.Value.ToString(), 2);
+        //private void mfc2TextBox_ValueChanged(object sender, EventArgs e)
+        //{
+        //    double inputValue = DaqAction.GetVoltsFromMFCflow(mfc2TextBox.Value.ToString(), 2);
 
-            if (Settings1.Default.MFC2enable == true)
-                daqOutput.UpdateDaqOut(1, inputValue);
-        }
+        //    if (Settings1.Default.MFC2enable == true)
+        //        daqOutput.UpdateDaqOut(1, inputValue);
+        //}
 
-        private void MFC1checkBox_CheckedChanged(object sender, EventArgs e)
-        {
-            if (MFC1checkBox.Checked == false)
-            {
-                daqOutput.UpdateDaqOut(0, 0);
-                mfc1TextBox.Enabled = false;
-                mfc1TextBox.Value = 0;
-            }
-            else
-            {
-                mfc1TextBox.Enabled = true;
-                daqOutput.UpdateDaqOut(0,  DaqAction.GetVoltsFromMFCflow(mfc1TextBox.Value.ToString(),1));
-            }
-            Settings1.Default.Save();
-        }
+        //private void MFC1checkBox_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    if (MFC1checkBox.Checked == false)
+        //    {
+        //        daqOutput.UpdateDaqOut(0, 0);
+        //        mfc1TextBox.Enabled = false;
+        //        mfc1TextBox.Value = 0;
+        //    }
+        //    else
+        //    {
+        //        mfc1TextBox.Enabled = true;
+        //        daqOutput.UpdateDaqOut(0,  DaqAction.GetVoltsFromMFCflow(mfc1TextBox.Value.ToString(),1));
+        //    }
+        //    Settings1.Default.Save();
+        //}
 
-        private void MFC2checkBox_CheckedChanged(object sender, EventArgs e)
-        {
-            if (MFC2checkBox.Checked == false)
-            {
-                daqOutput.UpdateDaqOut(1, 0);
-                mfc2TextBox.Enabled = false;
-                mfc2TextBox.Value = 0;
-            }
-            else
-            {
-                mfc2TextBox.Enabled = true;
-                daqOutput.UpdateDaqOut(1, DaqAction.GetVoltsFromMFCflow(mfc2TextBox.Value.ToString(), 2));
-            }
-            Settings1.Default.Save();
-        }
+        //private void MFC2checkBox_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    if (MFC2checkBox.Checked == false)
+        //    {
+        //        daqOutput.UpdateDaqOut(1, 0);
+        //        mfc2TextBox.Enabled = false;
+        //        mfc2TextBox.Value = 0;
+        //    }
+        //    else
+        //    {
+        //        mfc2TextBox.Enabled = true;
+        //        daqOutput.UpdateDaqOut(1, DaqAction.GetVoltsFromMFCflow(mfc2TextBox.Value.ToString(), 2));
+        //    }
+        //    Settings1.Default.Save();
+        //}
 
 
-        private void MFC3checkBox_CheckedChanged(object sender, EventArgs e)
-        {
-            if (MFC3checkBox.Checked == false)
-            {
-                daqOutput.UpdateDaqOut(2, 0);
-                mfc3TextBox.Enabled = false;
-                mfc3TextBox.Value = 0;
-            }
-            else
-            {
-                mfc3TextBox.Enabled = true;
-                daqOutput.UpdateDaqOut(2, DaqAction.GetVoltsFromMFCflow(mfc3TextBox.Value.ToString(), 3));
-            }
-            Settings1.Default.Save();
-        }
+        //private void MFC3checkBox_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    if (MFC3checkBox.Checked == false)
+        //    {
+        //        daqOutput.UpdateDaqOut(2, 0);
+        //        mfc3TextBox.Enabled = false;
+        //        mfc3TextBox.Value = 0;
+        //    }
+        //    else
+        //    {
+        //        mfc3TextBox.Enabled = true;
+        //        daqOutput.UpdateDaqOut(2, DaqAction.GetVoltsFromMFCflow(mfc3TextBox.Value.ToString(), 3));
+        //    }
+        //    Settings1.Default.Save();
+        //}
 
-        private void MFC4checkBox_CheckedChanged(object sender, EventArgs e)
-        {
-            if (MFC4checkBox.Checked == false)
-            {
-                daqOutput.UpdateDaqOut(3, 0);
-                mfc4TextBox.Enabled = false;
-                mfc4TextBox.Value = 0;
-            }
-            else
-            {
-                mfc4TextBox.Enabled = true;
-                daqOutput.UpdateDaqOut(3, DaqAction.GetVoltsFromMFCflow(mfc3TextBox.Value.ToString(), 4));
-            }
-            Settings1.Default.Save();
-        }
+        //private void MFC4checkBox_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    if (MFC4checkBox.Checked == false)
+        //    {
+        //        daqOutput.UpdateDaqOut(3, 0);
+        //        mfc4TextBox.Enabled = false;
+        //        mfc4TextBox.Value = 0;
+        //    }
+        //    else
+        //    {
+        //        mfc4TextBox.Enabled = true;
+        //        daqOutput.UpdateDaqOut(3, DaqAction.GetVoltsFromMFCflow(mfc3TextBox.Value.ToString(), 4));
+        //    }
+        //    Settings1.Default.Save();
+        //}
 
         private void resetGraphButton_Click(object sender, EventArgs e)
         {
@@ -916,14 +960,16 @@ namespace GraphAsync1
 
             startButton.Enabled = true;
             configMFCsButton.Enabled = true;
-            mfc1TextBox.Enabled = false;
-            mfc2TextBox.Enabled = false;
-            mfc3TextBox.Enabled = false;
-            mfc4TextBox.Enabled = false;
-            MFC1checkBox.Enabled = false;
-            MFC2checkBox.Enabled = false;
-            MFC3checkBox.Enabled = false;
-            MFC4checkBox.Enabled = false;
+
+           // mfc1TextBox.Enabled = false;
+           // mfc2TextBox.Enabled = false;
+           // mfc3TextBox.Enabled = false;
+           //// mfc4TextBox.Enabled = false;
+           // MFC1checkBox.Enabled = false;
+           // MFC2checkBox.Enabled = false;
+           // MFC3checkBox.Enabled = false;
+           // //MFC4checkBox.Enabled = false;
+            mfcControl4.EnableUserControl();
 
             recipeRunning = false;
             recipePauseCheckbox.Enabled = false;

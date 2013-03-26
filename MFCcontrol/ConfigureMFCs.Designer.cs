@@ -1,4 +1,4 @@
-﻿namespace GraphAsync1
+﻿namespace MFCcontrol
 {
     partial class ConfigureMFCs
     {

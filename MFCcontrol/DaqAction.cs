@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using NationalInstruments.DAQmx;
 
-namespace GraphAsync1
+namespace MFCcontrol
 {
-    class DaqAction
+    public class DaqAction
     {
         private NationalInstruments.DAQmx.Task myTask;
 
@@ -134,6 +134,7 @@ namespace GraphAsync1
                     return 0;
             }
         }
+
 
     }
 

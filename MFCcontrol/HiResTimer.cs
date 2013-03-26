@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 using System.Runtime;
 using System.Timers;
 
-namespace GraphAsync1
+namespace MFCcontrol
 {
     class HiResTimer
     {

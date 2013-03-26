@@ -16,7 +16,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
 
-namespace GraphAsync1
+namespace MFCcontrol
 {
     class GenTimer
     {

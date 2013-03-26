@@ -7,7 +7,7 @@
     <ProjectGuid>{94F8A864-3588-4EC2-ADFE-5BF9B301A04C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GraphAsync1</RootNamespace>
+    <RootNamespace>MFCcontrol</RootNamespace>
     <AssemblyName>GraphAsync1</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -37,6 +37,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -95,6 +96,12 @@
     <Compile Include="GenStopwatch.cs" />
     <Compile Include="GenTimer.cs" />
     <Compile Include="HiResTimer.cs" />
+    <Compile Include="MFCcontrolTemplate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MFCcontrolTemplate.Designer.cs">
+      <DependentUpon>MFCcontrolTemplate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecipeView.cs">
@@ -116,6 +123,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MFCcontrolTemplate.resx">
+      <DependentUpon>MFCcontrolTemplate.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -124,6 +134,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="RecipeView.resx">
       <DependentUpon>RecipeView.cs</DependentUpon>
@@ -162,6 +173,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ke648xControl\Ke648xControl.csproj">
+      <Project>{8fcb1d4f-5fbc-4654-883b-383338893d4a}</Project>
+      <Name>Ke648xControl</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

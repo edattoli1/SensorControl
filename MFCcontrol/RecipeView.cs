@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GraphAsync1
+namespace MFCcontrol
 {
     public partial class RecipeView : Form
     {
