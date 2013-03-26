@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.timeElapsedBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,6 +46,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.mfcControl4 = new MFCcontrol.MFCcontrolTemplate();
+            this.mfcControl1 = new MFCcontrol.MFCcontrolTemplate();
+            this.mfcControl2 = new MFCcontrol.MFCcontrolTemplate();
+            this.mfcControl3 = new MFCcontrol.MFCcontrolTemplate();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label16 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -75,10 +79,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.controlPicoammBox = new System.Windows.Forms.CheckBox();
-            this.mfcControl4 = new MFCcontrol.MFCcontrolTemplate();
-            this.mfcControl1 = new MFCcontrol.MFCcontrolTemplate();
-            this.mfcControl2 = new MFCcontrol.MFCcontrolTemplate();
-            this.mfcControl3 = new MFCcontrol.MFCcontrolTemplate();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.mfcMainControlEnable = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -88,46 +91,47 @@
             ((System.ComponentModel.ISupportInitialize)(this.samplesToResetUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.graphUpdateUDbox)).BeginInit();
             this.panel5.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(19, 7);
             this.chart1.Name = "chart1";
-            series1.BorderWidth = 3;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.CustomProperties = "IsXAxisQuantitative=False";
-            series1.Legend = "Legend1";
-            series1.Name = "MFC1";
-            series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-            series1.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-            series2.BorderWidth = 3;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.CustomProperties = "IsXAxisQuantitative=False";
-            series2.Legend = "Legend1";
-            series2.Name = "MFC2";
-            series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-            series2.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-            series3.BorderWidth = 3;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.Legend = "Legend1";
-            series3.Name = "MFC3";
-            series4.BorderWidth = 3;
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series4.Legend = "Legend1";
-            series4.Name = "MFC4";
-            this.chart1.Series.Add(series1);
-            this.chart1.Series.Add(series2);
-            this.chart1.Series.Add(series3);
-            this.chart1.Series.Add(series4);
+            series5.BorderWidth = 3;
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series5.CustomProperties = "IsXAxisQuantitative=False";
+            series5.Legend = "Legend1";
+            series5.Name = "MFC1";
+            series5.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            series5.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            series6.BorderWidth = 3;
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series6.CustomProperties = "IsXAxisQuantitative=False";
+            series6.Legend = "Legend1";
+            series6.Name = "MFC2";
+            series6.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            series6.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            series7.BorderWidth = 3;
+            series7.ChartArea = "ChartArea1";
+            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series7.Legend = "Legend1";
+            series7.Name = "MFC3";
+            series8.BorderWidth = 3;
+            series8.ChartArea = "ChartArea1";
+            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series8.Legend = "Legend1";
+            series8.Name = "MFC4";
+            this.chart1.Series.Add(series5);
+            this.chart1.Series.Add(series6);
+            this.chart1.Series.Add(series7);
+            this.chart1.Series.Add(series8);
             this.chart1.Size = new System.Drawing.Size(651, 300);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -193,9 +197,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.01739F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(10, 10);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(120, 20);
+            this.label2.Size = new System.Drawing.Size(183, 20);
             this.label2.TabIndex = 12;
-            this.label2.Text = "MFC STATUS";
+            this.label2.Text = "MFC MAIN CONTROL";
             // 
             // label3
             // 
@@ -222,6 +226,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.mfcMainControlEnable);
             this.panel1.Controls.Add(this.tableLayoutPanel2);
             this.panel1.Controls.Add(this.tableLayoutPanel1);
             this.panel1.Controls.Add(this.configMFCsButton);
@@ -248,6 +253,34 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(498, 174);
             this.tableLayoutPanel2.TabIndex = 36;
+            // 
+            // mfcControl4
+            // 
+            this.mfcControl4.Location = new System.Drawing.Point(3, 132);
+            this.mfcControl4.Name = "mfcControl4";
+            this.mfcControl4.Size = new System.Drawing.Size(487, 39);
+            this.mfcControl4.TabIndex = 35;
+            // 
+            // mfcControl1
+            // 
+            this.mfcControl1.Location = new System.Drawing.Point(3, 3);
+            this.mfcControl1.Name = "mfcControl1";
+            this.mfcControl1.Size = new System.Drawing.Size(492, 37);
+            this.mfcControl1.TabIndex = 36;
+            // 
+            // mfcControl2
+            // 
+            this.mfcControl2.Location = new System.Drawing.Point(3, 46);
+            this.mfcControl2.Name = "mfcControl2";
+            this.mfcControl2.Size = new System.Drawing.Size(492, 31);
+            this.mfcControl2.TabIndex = 37;
+            // 
+            // mfcControl3
+            // 
+            this.mfcControl3.Location = new System.Drawing.Point(3, 89);
+            this.mfcControl3.Name = "mfcControl3";
+            this.mfcControl3.Size = new System.Drawing.Size(492, 33);
+            this.mfcControl3.TabIndex = 38;
             // 
             // tableLayoutPanel1
             // 
@@ -330,7 +363,7 @@
             // 
             // configMFCsButton
             // 
-            this.configMFCsButton.Location = new System.Drawing.Point(3, 255);
+            this.configMFCsButton.Location = new System.Drawing.Point(236, 255);
             this.configMFCsButton.Name = "configMFCsButton";
             this.configMFCsButton.Size = new System.Drawing.Size(87, 43);
             this.configMFCsButton.TabIndex = 25;
@@ -345,9 +378,9 @@
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.01739F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(12, 10);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(163, 20);
+            this.label11.Size = new System.Drawing.Size(205, 20);
             this.label11.TabIndex = 16;
-            this.label11.Text = "RECIPE CONTROL";
+            this.label11.Text = "MFC RECIPE CONTROL";
             // 
             // panel2
             // 
@@ -583,9 +616,9 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.01739F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(12, 7);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(226, 20);
+            this.label7.Size = new System.Drawing.Size(138, 20);
             this.label7.TabIndex = 21;
-            this.label7.Text = "PICOAMMETER CONTROL";
+            this.label7.Text = "PICOAMMETER";
             // 
             // panel5
             // 
@@ -593,7 +626,7 @@
             this.panel5.Controls.Add(this.controlPicoammBox);
             this.panel5.Controls.Add(this.label7);
             this.panel5.Controls.Add(this.picoammSettingsButton);
-            this.panel5.Location = new System.Drawing.Point(571, 617);
+            this.panel5.Location = new System.Drawing.Point(47, 668);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(331, 100);
             this.panel5.TabIndex = 23;
@@ -609,39 +642,42 @@
             this.controlPicoammBox.UseVisualStyleBackColor = true;
             this.controlPicoammBox.CheckedChanged += new System.EventHandler(this.controlPicoammBox_CheckedChanged);
             // 
-            // mfcControl4
+            // panel4
             // 
-            this.mfcControl4.Location = new System.Drawing.Point(3, 132);
-            this.mfcControl4.Name = "mfcControl4";
-            this.mfcControl4.Size = new System.Drawing.Size(487, 39);
-            this.mfcControl4.TabIndex = 35;
+            this.panel4.Controls.Add(this.label8);
+            this.panel4.Location = new System.Drawing.Point(439, 668);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(381, 100);
+            this.panel4.TabIndex = 24;
             // 
-            // mfcControl1
+            // label8
             // 
-            this.mfcControl1.Location = new System.Drawing.Point(3, 3);
-            this.mfcControl1.Name = "mfcControl1";
-            this.mfcControl1.Size = new System.Drawing.Size(492, 37);
-            this.mfcControl1.TabIndex = 36;
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.01739F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(12, 8);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(200, 20);
+            this.label8.TabIndex = 25;
+            this.label8.Text = "ANALOG DAQ OUTPUT";
             // 
-            // mfcControl2
+            // mfcMainControlEnable
             // 
-            this.mfcControl2.Location = new System.Drawing.Point(3, 46);
-            this.mfcControl2.Name = "mfcControl2";
-            this.mfcControl2.Size = new System.Drawing.Size(492, 31);
-            this.mfcControl2.TabIndex = 37;
-            // 
-            // mfcControl3
-            // 
-            this.mfcControl3.Location = new System.Drawing.Point(3, 89);
-            this.mfcControl3.Name = "mfcControl3";
-            this.mfcControl3.Size = new System.Drawing.Size(492, 33);
-            this.mfcControl3.TabIndex = 38;
+            this.mfcMainControlEnable.AutoSize = true;
+            this.mfcMainControlEnable.Location = new System.Drawing.Point(26, 267);
+            this.mfcMainControlEnable.Name = "mfcMainControlEnable";
+            this.mfcMainControlEnable.Size = new System.Drawing.Size(111, 21);
+            this.mfcMainControlEnable.TabIndex = 37;
+            this.mfcMainControlEnable.Text = "Control MFCs";
+            this.mfcMainControlEnable.UseVisualStyleBackColor = true;
+            this.mfcMainControlEnable.CheckedChanged += new System.EventHandler(this.mfcMainControlEnable_CheckedChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(950, 729);
+            this.ClientSize = new System.Drawing.Size(956, 867);
+            this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -652,7 +688,6 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
-
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -667,6 +702,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.graphUpdateUDbox)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -718,6 +755,9 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.CheckBox controlPicoammBox;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.CheckBox mfcMainControlEnable;
         
     }
 }

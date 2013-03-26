@@ -16,7 +16,7 @@ namespace Ke648x
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Ke648xGUI());
+            //Application.Run(new Ke648xGUI());
         }
     }
 }

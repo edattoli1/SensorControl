@@ -35,7 +35,7 @@ namespace MFCcontrol
         {
             aTimer = new System.Timers.Timer();
             aTimer.Elapsed += aTimerEventHandler;
-            aTimer.Enabled = true;
+            //aTimer.Enabled = true;
             aTimer.Interval = 100; /* unit is ms */
         }
         

@@ -310,5 +310,17 @@ namespace MFCcontrol {
                 this["PicoammeterControlEnable"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool mfcMainControlEnable {
+            get {
+                return ((bool)(this["mfcMainControlEnable"]));
+            }
+            set {
+                this["mfcMainControlEnable"] = value;
+            }
+        }
     }
 }

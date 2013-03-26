@@ -77,14 +77,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GraphAsync1.exe" size="64000">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GraphAsync1.exe" size="65536">
       <assemblyIdentity name="GraphAsync1" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>AZr2an8pXygEI6TrLyploFz5zMAYjMRAkgj+Ig1HLRk=</dsig:DigestValue>
+        <dsig:DigestValue>0HmQm9tTZzNvVudPniWqwNhHqn6Me39ZGLzmIf9zDQI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -96,17 +96,17 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>BYLVL+ch9JmWQrJupvgsjgDXiHYiXuOPxMx/PMc6av0=</dsig:DigestValue>
+        <dsig:DigestValue>9CsDa6v8/K/NKFYnr03TJ00SR/SEuvf/y2AOEPBtvx4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="GraphAsync1.exe.config" size="7101">
+  <file name="GraphAsync1.exe.config" size="7235">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>FPI7hGwZ14MBucHFCWjYeulOLaGfYm/BoHbbubCbGjM=</dsig:DigestValue>
+      <dsig:DigestValue>AOcIlkpfwn3BvEnyEEJu8t5fS7Ne9NzN3NXWp7heJ84=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

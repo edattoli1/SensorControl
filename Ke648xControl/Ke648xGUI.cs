@@ -14,12 +14,12 @@ namespace Ke648x
     public partial class Ke648xGUI : Form
     {
 
-        Ke648xControl pAmm;
+        private Ke648xControl pAmm;
 
-        public Ke648xGUI()
+        public Ke648xGUI(Ke648xControl pAmmIn)
         {
             InitializeComponent();
-            pAmm = new Ke648xControl();
+            pAmm = pAmmIn;
 
 
         }
@@ -30,8 +30,7 @@ namespace Ke648x
             pAmm.InitSession();
             string stringRead = pAmm.GetIdentString();
 
-            gpibReadBox.Text = stringRead;
-            
+
 
         }
 
@@ -42,10 +41,14 @@ namespace Ke648x
 
         }
 
+        // Prevent this Form from being Disposed on its Form Close
         private void Ke648xGUI_FormClosing(object sender, FormClosingEventArgs e)
         {
+            // Hides the Form
             this.Visible = false;
+            // This cancels the closing event, prevents Dispose of the Form
             e.Cancel = true;
+            // Throw OnClosing event (normal behavior on Form Closing)
             base.OnClosing(e);
         }
 

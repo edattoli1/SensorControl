@@ -129,11 +129,20 @@ namespace MFCcontrol
             chart1.Series[2].Enabled = Settings1.Default.MFC3PlotEnable;
             chart1.Series[3].Enabled = Settings1.Default.MFC4PlotEnable;
 
+            //Set MFC Main Control Check Box to saved Value
+            mfcMainControlEnable.Checked = Settings1.Default.mfcMainControlEnable;
+
             //Set MFC USer Controls to correct MFC
             mfcControl1.SetMFCnumber(1);
             mfcControl2.SetMFCnumber(2);
             mfcControl3.SetMFCnumber(3);
             mfcControl4.SetMFCnumber(4);
+
+            //Default MFC Control State is OFF
+            mfcControl1.DisableUserControl();
+            mfcControl2.DisableUserControl();
+            mfcControl3.DisableUserControl();
+            mfcControl4.DisableUserControl();
 
             //Set whether recipe controls the following MFCs, stateMFC is logic control at runtime, Settings is permanent store
             stateMFCs[0] = Settings1.Default.MFC1enable;
@@ -142,6 +151,7 @@ namespace MFCcontrol
             stateMFCs[3] = Settings1.Default.MFC4enable;
 
             // Picoammeter init stuff
+            picoammSettingsButton.Enabled = false;
             PicoammControl = new Ke648xControl();
             controlPicoammBox.Checked = Settings1.Default.PicoammeterControlEnable;
 
@@ -157,19 +167,25 @@ namespace MFCcontrol
 
             //start UI Timer
             timerUI.TimerElapsed += UpdateUIhandler;
-            timerUI.StartTimer();
+            
 
             //start AD timer (when to acquire from A/D)
             UpdateADacquireBusy = false;
-            timerADacquire.StartTimer();
             timerADacquire.TimerElapsed += UpdateADacquireHandlerAsync;
 
             //start AD graph timer (when to graph data from A/D)
-            timerADgraph.StartTimer();
             timerADgraph.TimerElapsed += UpdateADgraphHandler;
 
-            //Zero all AD outputs
-            ZeroAllOutputs();
+            if (Settings1.Default.mfcMainControlEnable == true)
+            {
+                timerADacquire.StartTimer();
+                timerADgraph.StartTimer();
+                timerUI.StartTimer();
+                //Zero all AD outputs
+                ZeroAllOutputs();
+            }
+
+            
 
         }
 
@@ -436,7 +452,11 @@ namespace MFCcontrol
                 string caption = "DAQ Input Problem";
                 var result = MessageBox.Show (messageBoxText, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
-                    Environment.Exit(0); 
+                {
+                    Settings1.Default.mfcMainControlEnable = false;
+                    Settings1.Default.Save();
+                    Environment.Exit(0);
+                }
             }
 
 
@@ -521,7 +541,8 @@ namespace MFCcontrol
             watch.StopStopwatch();
 
             //Zero all AD outputs
-            ZeroAllOutputs();
+            if (Settings1.Default.mfcMainControlEnable == true)
+                ZeroAllOutputs();
 
             //Save all Settings
             Settings1.Default.Save();
@@ -722,7 +743,8 @@ namespace MFCcontrol
 
         private void AinGraphUpdateBox_CheckedChanged(object sender, EventArgs e)
         {
-            if (AinGraphUpdateBox.Checked == true)
+            //Only Graph AD Input if both Update Box is Checked and MFC Control is enabled
+            if ( (AinGraphUpdateBox.Checked == true) && Settings1.Default.mfcMainControlEnable )
             {
                 AinGraphUpdateState = true;
                 timerADgraph.StartTimer();
@@ -789,6 +811,7 @@ namespace MFCcontrol
             {
                 timerADoutUpdate.StopTimer();
                 recipeRunning = false;
+
             }
             else
             {
@@ -803,7 +826,7 @@ namespace MFCcontrol
         {
             //PicoAmmForm = new Ke648xGUI();
             if (PicoammForm == null)
-                PicoammForm = new Ke648xGUI();
+                PicoammForm = new Ke648xGUI(PicoammControl);
 
             PicoammForm.Show();
         }
@@ -817,7 +840,11 @@ namespace MFCcontrol
             string caption = "DAQ Output Problem";
             var result = MessageBox.Show(messageBoxText, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
+            {
+                Settings1.Default.mfcMainControlEnable = false;
+                Settings1.Default.Save();
                 Environment.Exit(0);
+            }
         }
 
         static bool FileInUse(string path)
@@ -866,12 +893,50 @@ namespace MFCcontrol
                 PicoammControl.InitSession();
                 PicoammControl.InitDevice();
                 Settings1.Default.PicoammeterControlEnable = controlPicoammBox.Checked;
+                picoammSettingsButton.Enabled = true;
+                
             }
             else
             {
                 PicoammControl.EndSession();
                 Settings1.Default.PicoammeterControlEnable = controlPicoammBox.Checked;
+                picoammSettingsButton.Enabled = false;
+                
+                //Hide Picoammeter window if Configuation window is open
+                if (PicoammForm != null)
+                    PicoammForm.Hide();
             }
+        }
+
+        private void mfcMainControlEnable_CheckedChanged(object sender, EventArgs e)
+        {
+            if (mfcMainControlEnable.Checked == true)
+            {
+                mfcControl1.EnableUserControl();
+                mfcControl2.EnableUserControl();
+                mfcControl3.EnableUserControl();
+                mfcControl4.EnableUserControl();
+                timerADacquire.StartTimer();
+                timerADgraph.StartTimer();
+                timerADoutUpdate.StartTimer();
+                timerUI.StartTimer();
+                loadFlowsButton.Enabled = true;
+            }
+            else
+            {
+                mfcControl1.DisableUserControl();
+                mfcControl2.DisableUserControl();
+                mfcControl3.DisableUserControl();
+                mfcControl4.DisableUserControl();
+                timerADacquire.StopTimer();
+                timerADgraph.StopTimer();
+                timerADoutUpdate.StopTimer();
+                timerUI.StopTimer();
+                loadFlowsButton.Enabled = false;
+                startButton.Enabled = false;
+            }
+            Settings1.Default.mfcMainControlEnable = mfcMainControlEnable.Checked;
+            AinGraphUpdateBox_CheckedChanged(this, EventArgs.Empty);
         }
 
     }
