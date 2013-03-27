@@ -12,11 +12,12 @@ namespace MFCcontrol
 {
     public partial class RecipeView : Form
     {
-        private Form1 parentForm;
+        private MfcRecipeControl parentForm;
+        //private Form1 mainForm;
         private List<string[]> tableList;
         private bool[] stateMFCs;
         
-        public RecipeView(Form1 parentFormIn, List<string[]> inputTable, bool[] stateMFCsIn)
+        public RecipeView(MfcRecipeControl parentFormIn, List<string[]> inputTable, bool[] stateMFCsIn)
         {
             InitializeComponent();
             parentForm = parentFormIn;

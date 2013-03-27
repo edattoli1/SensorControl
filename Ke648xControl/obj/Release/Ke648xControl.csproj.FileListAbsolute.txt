@@ -1,0 +1,9 @@
+C:\Users\Eric\Documents\Visual Studio 2012\Projects\SensorControl\Ke648xControl\bin\Release\ke6487control.exe.config
+C:\Users\Eric\Documents\Visual Studio 2012\Projects\SensorControl\Ke648xControl\bin\Release\ke6487control.exe
+C:\Users\Eric\Documents\Visual Studio 2012\Projects\SensorControl\Ke648xControl\bin\Release\ke6487control.pdb
+C:\Users\Eric\Documents\Visual Studio 2012\Projects\SensorControl\Ke648xControl\bin\Release\NationalInstruments.Common.Native.dll
+C:\Users\Eric\Documents\Visual Studio 2012\Projects\SensorControl\Ke648xControl\obj\Release\Ke648x.Ke648xGUI.resources
+C:\Users\Eric\Documents\Visual Studio 2012\Projects\SensorControl\Ke648xControl\obj\Release\Ke648x.Properties.Resources.resources
+C:\Users\Eric\Documents\Visual Studio 2012\Projects\SensorControl\Ke648xControl\obj\Release\Ke648xControl.csproj.GenerateResource.Cache
+C:\Users\Eric\Documents\Visual Studio 2012\Projects\SensorControl\Ke648xControl\obj\Release\ke6487control.exe
+C:\Users\Eric\Documents\Visual Studio 2012\Projects\SensorControl\Ke648xControl\obj\Release\ke6487control.pdb

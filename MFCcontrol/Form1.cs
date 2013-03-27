@@ -17,22 +17,24 @@ namespace MFCcontrol
 {
     public partial class Form1 : Form
     {
-        private GenStopwatch watch;
+        internal GenStopwatch watch;
         private GenTimer timerUI;
-        private GenTimer timerADgraph;
+        internal GenTimer timerADgraph;
         //private HiResTimer timerADacquire;
-        private GenTimer timerADacquire;
-        private GenTimer timerADoutUpdate;
-        private StreamWriter swriter;
-        private List<string[]> ADoutTableValues_s;
-        private List<double[]> ADoutTableValues_d;
-        private List<double[]> ADoutTableVolts;
+        internal GenTimer timerADacquire;
+        internal GenTimer timerADoutUpdate;
+        internal StreamWriter swriter;
+
+        internal List<string[]> ADoutTableValues_s;
+        internal List<double[]> ADoutTableValues_d;
+        internal List<double[]> ADoutTableVolts;
+
         private static double[] currentADin;
         private DaqAction daqInput;
         public DaqAction daqOutputMFC;
         public DaqAction daqOutputBiases;
-        private int curRow_ADoutTable;
-        private bool recipeRunning;
+        internal int curRow_ADoutTable;
+        internal bool recipeRunning;
         private bool AinGraphUpdateState;
         private int ADgraphUpdateCnt;
         private double[] presentMFCsetting;
@@ -42,18 +44,21 @@ namespace MFCcontrol
 
         // state of the MFCs for the recipe to be used
         // 0th in array corresponds to MFC 1, .., etc
-        private bool[] stateMFCs;
+        internal bool[] stateMFCs;
 
         // maximum flow rate of the MFCs for the recipe to be used
         // 0th in array corresponds to MFC 1, .., etc
-        private int[] maxFlowMFCs;
+        internal int[] maxFlowMFCs;
 
         //Helper Classes
-        private RecipeView RecipeView1;
+        // TODO remove
+        //private RecipeView RecipeView1;
+
+
         private ConfigureMFCs MFCconfigure1;
 
         //used for closing file properly when stop or exit button is hit
-        private bool IsADoutfileOpen = false;
+        internal bool IsADoutfileOpen = false;
         
         
         public Form1()
@@ -110,7 +115,7 @@ namespace MFCcontrol
 
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        internal void Form1_Load(object sender, EventArgs e)
         {
 
             //Make sure counters are at 0 (for DAQ output and Graph Reset count)
@@ -118,6 +123,9 @@ namespace MFCcontrol
             ADgraphUpdateCnt = 0;
             
             timeElapsedBox.Text = (watch.GetMsElapsed()/3600.0).ToString();
+
+            //Let recipe control panel know about parent form
+            mfcRecipeControl1.parentForm = this;
 
             // Let MFC Control Panels know that about parent form so they can interact with it
             mfcControl1.parentForm = this;
@@ -163,13 +171,6 @@ namespace MFCcontrol
             PicoammControl = new Ke648xControl();
             controlPicoammBox.Checked = Settings1.Default.PicoammeterControlEnable;
 
-            viewFlowRecipe.Enabled = false;
-            startButton.Enabled = false;
-            recipePauseCheckbox.Enabled = false;
-            exitRecipeButton.Enabled = false;
-
-            openFileDialog1.InitialDirectory = System.IO.Path.GetDirectoryName(Application.ExecutablePath);
-
             //start StopWatch
             watch.StartStopwatch();
 
@@ -191,6 +192,10 @@ namespace MFCcontrol
                 timerUI.StartTimer();
                 //Zero all AD outputs
                 ZeroAllMFCOutputs();
+                mfcControl1.EnableUserControl();
+                mfcControl2.EnableUserControl();
+                mfcControl3.EnableUserControl();
+                mfcControl4.EnableUserControl();
             }
 
             //If DAQ Analog Out is Enabled in Settings file, Update Checkmark and Zero Bias Outputs
@@ -231,13 +236,13 @@ namespace MFCcontrol
 
                 if (curRow_ADoutTable < ADoutTableVolts.Count)
                 {
-                    nextRecipeTimeEventBox.Text = ADoutTableVolts[curRow_ADoutTable][0].ToString("0.00");
-                    lastRecipeTimeEventBox.Text = ADoutTableVolts[curRow_ADoutTable - 1][0].ToString("0.00");
+                    mfcRecipeControl1.nextRecipeTimeEventBox.Text = ADoutTableVolts[curRow_ADoutTable][0].ToString("0.00");
+                    mfcRecipeControl1.lastRecipeTimeEventBox.Text = ADoutTableVolts[curRow_ADoutTable - 1][0].ToString("0.00");
                 }
                 else // Recipe is Over
                 {
-                    lastRecipeTimeEventBox.Text = ADoutTableVolts[curRow_ADoutTable - 1][0].ToString("0.00");
-                    nextRecipeTimeEventBox.Text = "Recipe Over";
+                    mfcRecipeControl1.lastRecipeTimeEventBox.Text = ADoutTableVolts[curRow_ADoutTable - 1][0].ToString("0.00");
+                    mfcRecipeControl1.nextRecipeTimeEventBox.Text = "Recipe Over";
                 }
 
                 //Update Present Set Flow in GUI on MFC Control Section
@@ -250,101 +255,14 @@ namespace MFCcontrol
             }
         }
 
-
-        private void startButton_Click(object sender, EventArgs e)
-        {
-            //Create AD results text file, put headers in
-            //Make sure writes are done asynchronously using FileStream to open file async
-            
-            FileStream sourceStream = new FileStream("adInput.txt",
-                   FileMode.Create, FileAccess.Write, FileShare.Read,
-                   bufferSize: 4096, useAsync: true);
-
-            swriter = new StreamWriter(sourceStream);
-            swriter.AutoFlush = true;
-
-            string headerString = "Time (s)";
-
-
-            int numActiveMFCs = 0;
-            for (int i = 0; i < stateMFCs.Length; i++)
-            {
-                if (stateMFCs[i] == true)
-                {
-                    numActiveMFCs++;
-                    headerString += "\tMFC " + (i+1).ToString() + " Flow (sccm)";
-                }
-            }
-                
-            swriter.Write(headerString + Environment.NewLine);
-
-            IsADoutfileOpen = true;
-            
-
-            //Go Into Low Latency Mode for Garbage Collector
-            GCSettings.LatencyMode = GCLatencyMode.SustainedLowLatency;
-
-            //Output initial DAQ Output values
-            for (int i = 1; i <= Settings1.Default.MFCcontrol_numMFCs; i++)
-            {
-                if (stateMFCs[i - 1] == true)
-                {
-                    try
-                    {
-                        daqOutputMFC.UpdateDaqOut(i - 1, ADoutTableVolts[0][i]);
-                    }
-                    catch
-                    {
-                        DaqOutputProblem();
-                    }
-
-                }
-            }
-
-            curRow_ADoutTable = 1;
-
-            //start Program Stopwatch
-            watch.StopStopwatch();
-            watch.ResetStopwatch();
-            watch.StartStopwatch();
-
-            //start AD output update timer (when to update output for A/D), units of ms
-            timerADoutUpdate.SetInterval(ADoutTableVolts[1][0]*60*1000);
-            nextRecipeTimeEventBox.Text = ADoutTableVolts[1][0].ToString();
-            timerADoutUpdate.StartTimer();
-            timerADoutUpdate.TimerElapsed += UpdateADoutputHandler;
-
-            //Clear Output Graph
-            resetGraphButton_Click(this, EventArgs.Empty);
-
-            //Disable users from Changing MFC states
-            configMFCsButton.Enabled = false;
-            recipePauseCheckbox.Enabled = true;
-
-
-            mfcControl1.DisableUserControl();
-            mfcControl2.DisableUserControl();
-            mfcControl3.DisableUserControl();
-            mfcControl4.DisableUserControl();
-
-            startButton.Enabled = false;
-            exitRecipeButton.Enabled = true;
-
-            recipeRunning = true;
-
-            lastRecipeTimeEventBox.Text = "0";
-            
-        }
-
-
         delegate void UpdateADgraphDelegate ();
 
         private bool UpdateADgraphBusy = false;
-        private bool UpdateADacquireBusy = false;
-        private bool saveADdataBusy = false;
-        private bool updateADoutputBusy = false;
+        internal bool UpdateADacquireBusy = false;
+        internal bool saveADdataBusy = false;
+        internal bool updateADoutputBusy = false;
 
-        private void UpdateADoutputHandler(object obj, EventArgs e)
+        internal void UpdateADoutputHandler(object obj, EventArgs e)
         {
             if (updateADoutputBusy == true)
                 return;
@@ -572,104 +490,6 @@ namespace MFCcontrol
  
         }
 
-        private void loadFlowsButton_Click(object sender, EventArgs e)
-        {
-            DialogResult result = openFileDialog1.ShowDialog();
-
-            if (result == DialogResult.OK) // Test result.
-            {
-                if (FileInUse(openFileDialog1.FileName) == true)
-                    return;
-                
-                //ADoutTableValues = new List<string[]>();
-
-                SShtLoad sshtLoad1 = new SShtLoad();
-
-                stateMFCs = sshtLoad1.LoadMFCstate(openFileDialog1.FileName);
-                Settings1.Default.MFC1enable = stateMFCs[0];
-                Settings1.Default.MFC2enable = stateMFCs[1];
-                Settings1.Default.MFC3enable = stateMFCs[2];
-                Settings1.Default.MFC4enable = stateMFCs[3];
-
-                maxFlowMFCs = sshtLoad1.LoadMFCmaxFlows(openFileDialog1.FileName);
-
-                //Update Size of MFCs in Program Wide Value Storage
-                Settings1.Default.MFC1maxRange = maxFlowMFCs[0].ToString();
-                Settings1.Default.MFC2maxRange = maxFlowMFCs[1].ToString();
-                Settings1.Default.MFC3maxRange = maxFlowMFCs[2].ToString();
-                Settings1.Default.MFC4maxRange = maxFlowMFCs[3].ToString();
-                Settings1.Default.Save();
-
-                mfcControl1.SetMFCnumber(1);
-                mfcControl2.SetMFCnumber(2);
-                mfcControl3.SetMFCnumber(3);
-                mfcControl4.SetMFCnumber(4);
-
-                // Load all rows of recipe Spreadsheet into ADoutTableValues_s
-                // Empty cells are marked translated into -1 (means do nothing)
-                // ADoutTableValues_d is in format of Flow (sccm)
-
-                ADoutTableValues_s = sshtLoad1.Load(openFileDialog1.FileName);
-
-                ADoutTableValues_d = new List<double[]> ();
-                double[] currentRow_d;
-                foreach (string[] rowArray in ADoutTableValues_s)
-                {
-                    currentRow_d = new double[Settings1.Default.MFCcontrol_numMFCs+1];
-                    for (int i = 0; i < Settings1.Default.MFCcontrol_numMFCs+1; i++)
-                    {
-                        if (rowArray[i] == "")
-                            currentRow_d[i] = -1.0;
-                        else
-                            currentRow_d[i] = Convert.ToDouble(rowArray[i]);
-                    }
-                    ADoutTableValues_d.Add(currentRow_d);
-                }
-
-                // Convert ADoutTableValues_d (flow sccm) into ADoutTableVolts (volts)
-                // column 1 is times, rest of columns are MFC voltage control values (1,2...)
-
-                ADoutTableVolts = new List<double[]>();
-
-                foreach (string[] rowArray in ADoutTableValues_s)
-                {
-                    currentRow_d = new double[Settings1.Default.MFCcontrol_numMFCs + 1];
-                    
-                    //Load times (column 1 into volts list of arrays
-                    currentRow_d[0] = Convert.ToDouble(rowArray[0]);
-
-                    for (int i = 1; i <= stateMFCs.Length; i++)
-                    {
-                        if (rowArray[i] == "")
-                            currentRow_d[i] = -1.0;
-                        else
-                            currentRow_d[i] = DaqAction.GetVoltsFromMFCflow(rowArray[i], i);
-                    }
-                    ADoutTableVolts.Add(currentRow_d);
-                }
-
-                startButton.Enabled = true;
-                viewFlowRecipe.Enabled = true;
-            }
-        }
-
-        private void viewFlowRecipe_Click(object sender, EventArgs e)
-        {
-            RecipeView1 = new RecipeView(this, ADoutTableValues_s, stateMFCs);
-            
-            RecipeView1.Show();
-        }
-
-        public void DisableViewFlowBtn()
-        {
-            this.viewFlowRecipe.Enabled = false;
-        }
-
-        public void EnableViewFlowBtn()
-        {
-            this.viewFlowRecipe.Enabled = true;
-        }
-
 
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -731,7 +551,7 @@ namespace MFCcontrol
         }
         
 
-        private void resetGraphButton_Click(object sender, EventArgs e)
+        internal void resetGraphButton_Click(object sender, EventArgs e)
         {
             chart1.Series[0].Points.Clear();
             chart1.Series[1].Points.Clear();
@@ -774,64 +594,7 @@ namespace MFCcontrol
             Settings1.Default.Save();
         }
 
-        private void exitRecipe_Click(object sender, EventArgs e)
-        {
-            watch.StopStopwatch();
-            watch.ResetStopwatch();
-
-            timerADoutUpdate.StopTimer();
-
-            recipeRunning = false;
-            GCSettings.LatencyMode = GCLatencyMode.Interactive;
-            //disable writing to disk for last AD acquire events due to last callbacks from HiResTimer class
-            //UpdateADacquireBusy = true;
-
-
-            //wait for disk writes, our timer handlers to finish before closing file
-            while ((saveADdataBusy == true) || (UpdateADacquireBusy == true) || (updateADoutputBusy == true))
-                Thread.Sleep(200);
-
-            if (IsADoutfileOpen == true)
-            {
-                swriter.Close();
-                IsADoutfileOpen = false;
-            }
-
-            startButton.Enabled = true;
-            configMFCsButton.Enabled = true;
-
-
-            mfcControl1.EnableUserControl();
-            mfcControl2.EnableUserControl();
-            mfcControl3.EnableUserControl();
-            mfcControl4.EnableUserControl();
-
-            //Zero all AD outputs
-            ZeroAllMFCOutputs();
-
-            recipeRunning = false;
-            recipePauseCheckbox.Enabled = false;
-            resetGraphButton_Click(this, EventArgs.Empty);
-            this.Form1_Load(this, EventArgs.Empty);
-            startButton.Enabled = true;
-            viewFlowRecipe.Enabled = true;
-        }
-
-        private void recipePauseCheckbox_CheckedChanged(object sender, EventArgs e)
-        {
-            if (recipePauseCheckbox.Checked == true)
-            {
-                timerADoutUpdate.StopTimer();
-                recipeRunning = false;
-
-            }
-            else
-            {
-                recipeRunning = true;
-                timerADoutUpdate.StartTimer();
-            }
-        }
-
+   
 
 
         private void ke648xStart_Click(object sender, EventArgs e)
@@ -845,7 +608,7 @@ namespace MFCcontrol
 
         //Helper Functions
 
-        private void DaqOutputProblem()
+        internal void DaqOutputProblem()
         {
             string messageBoxText = "Do you want to exit?";
             string caption = "DAQ Output Problem";
@@ -859,30 +622,13 @@ namespace MFCcontrol
             }
         }
 
-        static bool FileInUse(string path)
-        {
-            try
-            {
-                using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
-                {
-                    var test = fs.CanWrite;
-                }
-                return false;
-            }
-            catch (IOException ex)
-            {
-                System.Windows.Forms.MessageBox.Show("File Access Exception " + ex.Message);
-                return true;
-            }
-        }
-
         //Used for Drawing Rows in MFC Table
         private void tableLayoutPanel_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
         {
             e.Graphics.DrawLine(Pens.Black, e.CellBounds.Location, new Point(e.CellBounds.Right, e.CellBounds.Top));
         }
 
-        private void ZeroAllMFCOutputs()
+        internal void ZeroAllMFCOutputs()
         {
             try
             {
@@ -949,7 +695,7 @@ namespace MFCcontrol
                 timerADgraph.StartTimer();
                 timerADoutUpdate.StartTimer();
                 timerUI.StartTimer();
-                loadFlowsButton.Enabled = true;
+                mfcRecipeControl1.loadFlowsButton.Enabled = true;
             }
             else
             {
@@ -961,8 +707,8 @@ namespace MFCcontrol
                 timerADgraph.StopTimer();
                 timerADoutUpdate.StopTimer();
                 timerUI.StopTimer();
-                loadFlowsButton.Enabled = false;
-                startButton.Enabled = false;
+                mfcRecipeControl1.loadFlowsButton.Enabled = false;
+                mfcRecipeControl1.startButton.Enabled = false;
             }
             Settings1.Default.mfcMainControlEnable = mfcMainControlEnable.Checked;
             AinGraphUpdateBox_CheckedChanged(this, EventArgs.Empty);

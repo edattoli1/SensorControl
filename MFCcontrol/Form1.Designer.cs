@@ -37,20 +37,12 @@
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.timeElapsedBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.startButton = new System.Windows.Forms.Button();
-            this.loadFlowsButton = new System.Windows.Forms.Button();
-            this.viewFlowRecipe = new System.Windows.Forms.Button();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.mfcMainControlEnable = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.mfcControl4 = new MFCcontrol.MFCcontrolTemplate();
-            this.mfcControl1 = new MFCcontrol.MFCcontrolTemplate();
-            this.mfcControl2 = new MFCcontrol.MFCcontrolTemplate();
-            this.mfcControl3 = new MFCcontrol.MFCcontrolTemplate();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label16 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -58,15 +50,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.configMFCsButton = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.nextRecipeTimeEventBox = new System.Windows.Forms.TextBox();
-            this.lastRecipeTimeEventBox = new System.Windows.Forms.TextBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.recipePauseCheckbox = new System.Windows.Forms.CheckBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.exitRecipeButton = new System.Windows.Forms.Button();
             this.resetGraphButton = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
@@ -96,11 +79,15 @@
             this.vgsPresValTextBox = new System.Windows.Forms.TextBox();
             this.biasOutsBox = new System.Windows.Forms.CheckBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.mfcRecipeControl1 = new MFCcontrol.MfcRecipeControl();
+            this.mfcControl4 = new MFCcontrol.MFCcontrolTemplate();
+            this.mfcControl1 = new MFCcontrol.MFCcontrolTemplate();
+            this.mfcControl2 = new MFCcontrol.MFCcontrolTemplate();
+            this.mfcControl3 = new MFCcontrol.MFCcontrolTemplate();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.samplesToResetUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.graphUpdateUDbox)).BeginInit();
@@ -172,41 +159,6 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Time Elapsed (min):";
             // 
-            // startButton
-            // 
-            this.startButton.Location = new System.Drawing.Point(8, 128);
-            this.startButton.Name = "startButton";
-            this.startButton.Size = new System.Drawing.Size(75, 23);
-            this.startButton.TabIndex = 3;
-            this.startButton.Text = "Start";
-            this.startButton.UseVisualStyleBackColor = true;
-            this.startButton.Click += new System.EventHandler(this.startButton_Click);
-            // 
-            // loadFlowsButton
-            // 
-            this.loadFlowsButton.Location = new System.Drawing.Point(137, 128);
-            this.loadFlowsButton.Name = "loadFlowsButton";
-            this.loadFlowsButton.Size = new System.Drawing.Size(143, 23);
-            this.loadFlowsButton.TabIndex = 6;
-            this.loadFlowsButton.Text = "Load Flow Recipe";
-            this.loadFlowsButton.UseVisualStyleBackColor = true;
-            this.loadFlowsButton.Click += new System.EventHandler(this.loadFlowsButton_Click);
-            // 
-            // viewFlowRecipe
-            // 
-            this.viewFlowRecipe.Location = new System.Drawing.Point(137, 165);
-            this.viewFlowRecipe.Name = "viewFlowRecipe";
-            this.viewFlowRecipe.Size = new System.Drawing.Size(143, 23);
-            this.viewFlowRecipe.TabIndex = 7;
-            this.viewFlowRecipe.Text = "View Flow Recipe";
-            this.viewFlowRecipe.UseVisualStyleBackColor = true;
-            this.viewFlowRecipe.Click += new System.EventHandler(this.viewFlowRecipe_Click);
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            this.openFileDialog1.Filter = "Excel2007+|*.xlsx";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -248,7 +200,7 @@
             this.panel1.Controls.Add(this.tableLayoutPanel1);
             this.panel1.Controls.Add(this.configMFCsButton);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(43, 336);
+            this.panel1.Location = new System.Drawing.Point(47, 336);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(506, 303);
             this.panel1.TabIndex = 13;
@@ -281,34 +233,6 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(498, 174);
             this.tableLayoutPanel2.TabIndex = 36;
-            // 
-            // mfcControl4
-            // 
-            this.mfcControl4.Location = new System.Drawing.Point(3, 132);
-            this.mfcControl4.Name = "mfcControl4";
-            this.mfcControl4.Size = new System.Drawing.Size(487, 39);
-            this.mfcControl4.TabIndex = 35;
-            // 
-            // mfcControl1
-            // 
-            this.mfcControl1.Location = new System.Drawing.Point(3, 3);
-            this.mfcControl1.Name = "mfcControl1";
-            this.mfcControl1.Size = new System.Drawing.Size(492, 37);
-            this.mfcControl1.TabIndex = 36;
-            // 
-            // mfcControl2
-            // 
-            this.mfcControl2.Location = new System.Drawing.Point(3, 46);
-            this.mfcControl2.Name = "mfcControl2";
-            this.mfcControl2.Size = new System.Drawing.Size(492, 31);
-            this.mfcControl2.TabIndex = 37;
-            // 
-            // mfcControl3
-            // 
-            this.mfcControl3.Location = new System.Drawing.Point(3, 89);
-            this.mfcControl3.Name = "mfcControl3";
-            this.mfcControl3.Size = new System.Drawing.Size(492, 33);
-            this.mfcControl3.TabIndex = 38;
             // 
             // tableLayoutPanel1
             // 
@@ -398,103 +322,6 @@
             this.configMFCsButton.Text = "Configure MFCs";
             this.configMFCsButton.UseVisualStyleBackColor = true;
             this.configMFCsButton.Click += new System.EventHandler(this.configMFCbuttonClick);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.01739F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(12, 10);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(205, 20);
-            this.label11.TabIndex = 16;
-            this.label11.Text = "MFC RECIPE CONTROL";
-            // 
-            // panel2
-            // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.nextRecipeTimeEventBox);
-            this.panel2.Controls.Add(this.lastRecipeTimeEventBox);
-            this.panel2.Controls.Add(this.label23);
-            this.panel2.Controls.Add(this.label22);
-            this.panel2.Controls.Add(this.recipePauseCheckbox);
-            this.panel2.Controls.Add(this.label21);
-            this.panel2.Controls.Add(this.exitRecipeButton);
-            this.panel2.Controls.Add(this.label11);
-            this.panel2.Controls.Add(this.startButton);
-            this.panel2.Controls.Add(this.viewFlowRecipe);
-            this.panel2.Controls.Add(this.loadFlowsButton);
-            this.panel2.Location = new System.Drawing.Point(577, 336);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(292, 265);
-            this.panel2.TabIndex = 17;
-            // 
-            // nextRecipeTimeEventBox
-            // 
-            this.nextRecipeTimeEventBox.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.nextRecipeTimeEventBox.Enabled = false;
-            this.nextRecipeTimeEventBox.Location = new System.Drawing.Point(164, 81);
-            this.nextRecipeTimeEventBox.Name = "nextRecipeTimeEventBox";
-            this.nextRecipeTimeEventBox.ReadOnly = true;
-            this.nextRecipeTimeEventBox.Size = new System.Drawing.Size(88, 22);
-            this.nextRecipeTimeEventBox.TabIndex = 23;
-            // 
-            // lastRecipeTimeEventBox
-            // 
-            this.lastRecipeTimeEventBox.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.lastRecipeTimeEventBox.Enabled = false;
-            this.lastRecipeTimeEventBox.Location = new System.Drawing.Point(164, 51);
-            this.lastRecipeTimeEventBox.Name = "lastRecipeTimeEventBox";
-            this.lastRecipeTimeEventBox.ReadOnly = true;
-            this.lastRecipeTimeEventBox.Size = new System.Drawing.Size(88, 22);
-            this.lastRecipeTimeEventBox.TabIndex = 22;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(13, 81);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(116, 17);
-            this.label23.TabIndex = 21;
-            this.label23.Text = "Next Event (min):";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(13, 51);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(115, 17);
-            this.label22.TabIndex = 20;
-            this.label22.Text = "Last Event (min):";
-            // 
-            // recipePauseCheckbox
-            // 
-            this.recipePauseCheckbox.AutoSize = true;
-            this.recipePauseCheckbox.Location = new System.Drawing.Point(67, 170);
-            this.recipePauseCheckbox.Name = "recipePauseCheckbox";
-            this.recipePauseCheckbox.Size = new System.Drawing.Size(15, 14);
-            this.recipePauseCheckbox.TabIndex = 19;
-            this.recipePauseCheckbox.UseVisualStyleBackColor = true;
-            this.recipePauseCheckbox.CheckedChanged += new System.EventHandler(this.recipePauseCheckbox_CheckedChanged);
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(5, 168);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(56, 17);
-            this.label21.TabIndex = 18;
-            this.label21.Text = "Pause?";
-            // 
-            // exitRecipeButton
-            // 
-            this.exitRecipeButton.Location = new System.Drawing.Point(8, 204);
-            this.exitRecipeButton.Name = "exitRecipeButton";
-            this.exitRecipeButton.Size = new System.Drawing.Size(75, 49);
-            this.exitRecipeButton.TabIndex = 17;
-            this.exitRecipeButton.Text = "Exit Recipe";
-            this.exitRecipeButton.UseVisualStyleBackColor = true;
-            this.exitRecipeButton.Click += new System.EventHandler(this.exitRecipe_Click);
             // 
             // resetGraphButton
             // 
@@ -698,7 +525,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.12613F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.54817F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.5382F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 107F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 138F));
             this.tableLayoutPanel3.Controls.Add(this.label17, 0, 2);
             this.tableLayoutPanel3.Controls.Add(this.label15, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.label19, 1, 0);
@@ -742,7 +569,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(61, 5);
+            this.label19.Location = new System.Drawing.Point(52, 5);
             this.label19.Margin = new System.Windows.Forms.Padding(5);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(42, 17);
@@ -753,10 +580,10 @@
             // 
             this.VdsUpDown.DecimalPlaces = 2;
             this.VdsUpDown.Enabled = false;
-            this.VdsUpDown.Location = new System.Drawing.Point(61, 37);
+            this.VdsUpDown.Location = new System.Drawing.Point(52, 37);
             this.VdsUpDown.Margin = new System.Windows.Forms.Padding(5);
             this.VdsUpDown.Name = "VdsUpDown";
-            this.VdsUpDown.Size = new System.Drawing.Size(66, 22);
+            this.VdsUpDown.Size = new System.Drawing.Size(55, 22);
             this.VdsUpDown.TabIndex = 34;
             this.VdsUpDown.ValueChanged += new System.EventHandler(this.VdsUpDown_ValueChanged);
             // 
@@ -764,17 +591,17 @@
             // 
             this.VgsUpDown.DecimalPlaces = 2;
             this.VgsUpDown.Enabled = false;
-            this.VgsUpDown.Location = new System.Drawing.Point(61, 69);
+            this.VgsUpDown.Location = new System.Drawing.Point(52, 69);
             this.VgsUpDown.Margin = new System.Windows.Forms.Padding(5);
             this.VgsUpDown.Name = "VgsUpDown";
-            this.VgsUpDown.Size = new System.Drawing.Size(66, 22);
+            this.VgsUpDown.Size = new System.Drawing.Size(55, 22);
             this.VgsUpDown.TabIndex = 35;
             this.VgsUpDown.ValueChanged += new System.EventHandler(this.VgsUpDown_ValueChanged);
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(219, 5);
+            this.label20.Location = new System.Drawing.Point(187, 5);
             this.label20.Margin = new System.Windows.Forms.Padding(5);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(46, 17);
@@ -784,7 +611,7 @@
             // vdsLockCheckBox
             // 
             this.vdsLockCheckBox.AutoSize = true;
-            this.vdsLockCheckBox.Location = new System.Drawing.Point(217, 35);
+            this.vdsLockCheckBox.Location = new System.Drawing.Point(185, 35);
             this.vdsLockCheckBox.Name = "vdsLockCheckBox";
             this.vdsLockCheckBox.Padding = new System.Windows.Forms.Padding(8);
             this.vdsLockCheckBox.Size = new System.Drawing.Size(31, 26);
@@ -795,7 +622,7 @@
             // vgsLockCheckBox
             // 
             this.vgsLockCheckBox.AutoSize = true;
-            this.vgsLockCheckBox.Location = new System.Drawing.Point(217, 67);
+            this.vgsLockCheckBox.Location = new System.Drawing.Point(185, 67);
             this.vgsLockCheckBox.Name = "vgsLockCheckBox";
             this.vgsLockCheckBox.Padding = new System.Windows.Forms.Padding(8);
             this.vgsLockCheckBox.Size = new System.Drawing.Size(31, 28);
@@ -806,7 +633,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(137, 5);
+            this.label24.Location = new System.Drawing.Point(117, 5);
             this.label24.Margin = new System.Windows.Forms.Padding(5);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(54, 17);
@@ -816,19 +643,19 @@
             // vdsPresValTextBox
             // 
             this.vdsPresValTextBox.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.vdsPresValTextBox.Location = new System.Drawing.Point(138, 38);
+            this.vdsPresValTextBox.Location = new System.Drawing.Point(118, 38);
             this.vdsPresValTextBox.Margin = new System.Windows.Forms.Padding(6);
             this.vdsPresValTextBox.Name = "vdsPresValTextBox";
-            this.vdsPresValTextBox.Size = new System.Drawing.Size(69, 22);
+            this.vdsPresValTextBox.Size = new System.Drawing.Size(58, 22);
             this.vdsPresValTextBox.TabIndex = 37;
             // 
             // vgsPresValTextBox
             // 
             this.vgsPresValTextBox.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.vgsPresValTextBox.Location = new System.Drawing.Point(138, 70);
+            this.vgsPresValTextBox.Location = new System.Drawing.Point(118, 70);
             this.vgsPresValTextBox.Margin = new System.Windows.Forms.Padding(6);
             this.vgsPresValTextBox.Name = "vgsPresValTextBox";
-            this.vgsPresValTextBox.Size = new System.Drawing.Size(69, 22);
+            this.vgsPresValTextBox.Size = new System.Drawing.Size(58, 22);
             this.vgsPresValTextBox.TabIndex = 38;
             // 
             // biasOutsBox
@@ -853,15 +680,50 @@
             this.label8.TabIndex = 25;
             this.label8.Text = "ANALOG DAQ OUTPUT";
             // 
+            // mfcRecipeControl1
+            // 
+            this.mfcRecipeControl1.Location = new System.Drawing.Point(572, 336);
+            this.mfcRecipeControl1.Name = "mfcRecipeControl1";
+            this.mfcRecipeControl1.Size = new System.Drawing.Size(297, 272);
+            this.mfcRecipeControl1.TabIndex = 25;
+            // 
+            // mfcControl4
+            // 
+            this.mfcControl4.Location = new System.Drawing.Point(3, 132);
+            this.mfcControl4.Name = "mfcControl4";
+            this.mfcControl4.Size = new System.Drawing.Size(487, 39);
+            this.mfcControl4.TabIndex = 35;
+            // 
+            // mfcControl1
+            // 
+            this.mfcControl1.Location = new System.Drawing.Point(3, 3);
+            this.mfcControl1.Name = "mfcControl1";
+            this.mfcControl1.Size = new System.Drawing.Size(492, 37);
+            this.mfcControl1.TabIndex = 36;
+            // 
+            // mfcControl2
+            // 
+            this.mfcControl2.Location = new System.Drawing.Point(3, 46);
+            this.mfcControl2.Name = "mfcControl2";
+            this.mfcControl2.Size = new System.Drawing.Size(492, 31);
+            this.mfcControl2.TabIndex = 37;
+            // 
+            // mfcControl3
+            // 
+            this.mfcControl3.Location = new System.Drawing.Point(3, 89);
+            this.mfcControl3.Name = "mfcControl3";
+            this.mfcControl3.Size = new System.Drawing.Size(492, 33);
+            this.mfcControl3.TabIndex = 38;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(956, 867);
+            this.Controls.Add(this.mfcRecipeControl1);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.Name = "Form1";
@@ -875,8 +737,6 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.samplesToResetUpDown)).EndInit();
@@ -898,22 +758,15 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.TextBox timeElapsedBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button startButton;
-        private System.Windows.Forms.Button loadFlowsButton;
-        private System.Windows.Forms.Button viewFlowRecipe;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button configMFCsButton;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button resetGraphButton;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.NumericUpDown graphUpdateUDbox;
@@ -924,19 +777,8 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Button exitRecipeButton;
-        private System.Windows.Forms.CheckBox recipePauseCheckbox;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox lastRecipeTimeEventBox;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.TextBox nextRecipeTimeEventBox;
         private System.Windows.Forms.Button picoammSettingsButton;
-        private MFCcontrolTemplate mfcControl4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private MFCcontrolTemplate mfcControl1;
-        private MFCcontrolTemplate mfcControl2;
-        private MFCcontrolTemplate mfcControl3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.CheckBox controlPicoammBox;
@@ -957,6 +799,12 @@
         private System.Windows.Forms.TextBox vdsPresValTextBox;
         private System.Windows.Forms.TextBox vgsPresValTextBox;
         private System.Windows.Forms.Button configBiasOutputButton;
+        internal MFCcontrolTemplate mfcControl4;
+        internal MFCcontrolTemplate mfcControl1;
+        internal MFCcontrolTemplate mfcControl2;
+        internal MFCcontrolTemplate mfcControl3;
+        internal System.Windows.Forms.Button configMFCsButton;
+        private MfcRecipeControl mfcRecipeControl1;
         
     }
 }
