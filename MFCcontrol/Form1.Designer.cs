@@ -698,7 +698,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.12613F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.54817F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.5382F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 106F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 107F));
             this.tableLayoutPanel3.Controls.Add(this.label17, 0, 2);
             this.tableLayoutPanel3.Controls.Add(this.label15, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.label19, 1, 0);
@@ -774,7 +774,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(220, 5);
+            this.label20.Location = new System.Drawing.Point(219, 5);
             this.label20.Margin = new System.Windows.Forms.Padding(5);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(46, 17);
@@ -784,7 +784,7 @@
             // vdsLockCheckBox
             // 
             this.vdsLockCheckBox.AutoSize = true;
-            this.vdsLockCheckBox.Location = new System.Drawing.Point(218, 35);
+            this.vdsLockCheckBox.Location = new System.Drawing.Point(217, 35);
             this.vdsLockCheckBox.Name = "vdsLockCheckBox";
             this.vdsLockCheckBox.Padding = new System.Windows.Forms.Padding(8);
             this.vdsLockCheckBox.Size = new System.Drawing.Size(31, 26);
@@ -795,7 +795,7 @@
             // vgsLockCheckBox
             // 
             this.vgsLockCheckBox.AutoSize = true;
-            this.vgsLockCheckBox.Location = new System.Drawing.Point(218, 67);
+            this.vgsLockCheckBox.Location = new System.Drawing.Point(217, 67);
             this.vgsLockCheckBox.Name = "vgsLockCheckBox";
             this.vgsLockCheckBox.Padding = new System.Windows.Forms.Padding(8);
             this.vgsLockCheckBox.Size = new System.Drawing.Size(31, 28);
