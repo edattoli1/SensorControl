@@ -10,6 +10,21 @@ namespace MFCcontrol
     public class DaqAction
     {
         private NationalInstruments.DAQmx.Task myTask;
+        private double daqOutputRangeMax;
+        private double daqOutputRangeMin;
+
+        public DaqAction()
+        {
+            daqOutputRangeMin = 0;
+            daqOutputRangeMax = 5;
+        }
+        
+        public DaqAction(double daqOutputRangeMinIn, double daqOutputRangeMaxIn)
+        {
+            daqOutputRangeMin = daqOutputRangeMinIn;
+            daqOutputRangeMax = daqOutputRangeMaxIn;
+        }
+
 
         // Reads input values from DAQ,
         // which DAQs to read from is controlled from Settings1.Default.DAQ_CreateVoltageChannel_AI_chans
@@ -98,6 +113,27 @@ namespace MFCcontrol
                 throw;
             }
         }
+
+        //Overloaded function, accepts string as AOchannel input
+        public void UpdateDaqOut(string AOchannel_s, double voltOut)
+        {
+            try
+            {
+                using (myTask = new NationalInstruments.DAQmx.Task())
+                {
+                    myTask.AOChannels.CreateVoltageChannel(AOchannel_s, "aoChannel",
+                        daqOutputRangeMin, daqOutputRangeMax, AOVoltageUnits.Volts);
+                    AnalogSingleChannelWriter writer = new AnalogSingleChannelWriter(myTask.Stream);
+                    writer.WriteSingleSample(true, voltOut);
+                }
+            }
+            catch (DaqException ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+                throw;
+            }
+        }
+
 
         static public double GetVoltsFromMFCflow(string inputFlow, int mfcNumber)
         {

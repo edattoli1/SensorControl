@@ -17,7 +17,6 @@ namespace MFCcontrol
 {
     public partial class Form1 : Form
     {
-        private DataForDaqOutput dataForDaq;
         private GenStopwatch watch;
         private GenTimer timerUI;
         private GenTimer timerADgraph;
@@ -30,7 +29,8 @@ namespace MFCcontrol
         private List<double[]> ADoutTableVolts;
         private static double[] currentADin;
         private DaqAction daqInput;
-        public DaqAction daqOutput;
+        public DaqAction daqOutputMFC;
+        public DaqAction daqOutputBiases;
         private int curRow_ADoutTable;
         private bool recipeRunning;
         private bool AinGraphUpdateState;
@@ -55,7 +55,7 @@ namespace MFCcontrol
         private bool IsADoutfileOpen = false;
         
         
-        public Form1(DataForDaqOutput inputDataDaq, GenStopwatch inputWatch)
+        public Form1(GenStopwatch inputWatch)
         {
             InitializeComponent();
 
@@ -78,9 +78,15 @@ namespace MFCcontrol
             // Initialize Members of Form1 Class
 
             daqInput = new DaqAction();
-            daqOutput = new DaqAction();
+            daqOutputMFC = new DaqAction();
+            daqOutputBiases = new DaqAction(-1 * Settings1.Default.sensorBiasMaxRange, Settings1.Default.sensorBiasMaxRange);
 
-            dataForDaq = inputDataDaq;
+            // Ready fields for Daq Bias Output
+            VdsUpDown.Maximum = Convert.ToDecimal(Settings1.Default.sensorBiasMaxRange);
+            VgsUpDown.Maximum = Convert.ToDecimal(Settings1.Default.sensorBiasMaxRange);
+            VdsUpDown.Minimum = -1 * Convert.ToDecimal(Settings1.Default.sensorBiasMaxRange);
+            VgsUpDown.Minimum = -1 * Convert.ToDecimal(Settings1.Default.sensorBiasMaxRange);
+
             watch = inputWatch;
             
             timerUI = new GenTimer();
@@ -183,10 +189,15 @@ namespace MFCcontrol
                 timerADgraph.StartTimer();
                 timerUI.StartTimer();
                 //Zero all AD outputs
-                ZeroAllOutputs();
+                ZeroAllMFCOutputs();
             }
 
-            
+            //If DAQ Analog Out is Enabled in Settings file, Update Checkmark and Zero Bias Outputs
+            if (Settings1.Default.sensorBiasEnable == true)
+            {
+                biasOutsBox.Checked = Settings1.Default.sensorBiasEnable;
+                ZeroAllBiasOutputs();
+            }
 
         }
 
@@ -279,7 +290,7 @@ namespace MFCcontrol
                 {
                     try
                     {
-                        daqOutput.UpdateDaqOut(i - 1, ADoutTableVolts[0][i]);
+                        daqOutputMFC.UpdateDaqOut(i - 1, ADoutTableVolts[0][i]);
                     }
                     catch
                     {
@@ -376,25 +387,25 @@ namespace MFCcontrol
             {
                 if (mfcNumber == 1)
                 {
-                    daqOutput.UpdateDaqOut(0, ADoutTable[curRow_ADoutTable][1]);
+                    daqOutputMFC.UpdateDaqOut(0, ADoutTable[curRow_ADoutTable][1]);
                     presentMFCsetting[0] = (ADoutTableValues_d[curRow_ADoutTable][1]);
                 }
 
                 else if (mfcNumber == 2)
                 {
-                    daqOutput.UpdateDaqOut(1, ADoutTable[curRow_ADoutTable][2]);
+                    daqOutputMFC.UpdateDaqOut(1, ADoutTable[curRow_ADoutTable][2]);
                     presentMFCsetting[1] = (ADoutTableValues_d[curRow_ADoutTable][2]);
                 }
 
                 else if (mfcNumber == 3)
                 {
-                    daqOutput.UpdateDaqOut(2, ADoutTable[curRow_ADoutTable][3]);
+                    daqOutputMFC.UpdateDaqOut(2, ADoutTable[curRow_ADoutTable][3]);
                     presentMFCsetting[2] = (ADoutTableValues_d[curRow_ADoutTable][3]);
                 }
 
                 else if (mfcNumber == 4)
                 {
-                    daqOutput.UpdateDaqOut(3, ADoutTable[curRow_ADoutTable][4]);
+                    daqOutputMFC.UpdateDaqOut(3, ADoutTable[curRow_ADoutTable][4]);
                     presentMFCsetting[3] = (ADoutTableValues_d[curRow_ADoutTable][4]);
                 }
             }
@@ -543,7 +554,7 @@ namespace MFCcontrol
 
             //Zero all AD outputs
             if (Settings1.Default.mfcMainControlEnable == true)
-                ZeroAllOutputs();
+                ZeroAllMFCOutputs();
 
             //Save all Settings
             Settings1.Default.Save();
@@ -700,19 +711,19 @@ namespace MFCcontrol
             {
                 case 1 :
                     if (Settings1.Default.MFC1enable == true)
-                        daqOutput.UpdateDaqOut(mfcNumber - 1, inputValue);
+                        daqOutputMFC.UpdateDaqOut(mfcNumber - 1, inputValue);
                     break;
                 case 2:
                     if (Settings1.Default.MFC2enable == true)
-                        daqOutput.UpdateDaqOut(mfcNumber - 1, inputValue);
+                        daqOutputMFC.UpdateDaqOut(mfcNumber - 1, inputValue);
                     break;
                 case 3:
                     if (Settings1.Default.MFC3enable == true)
-                        daqOutput.UpdateDaqOut(mfcNumber - 1, inputValue);
+                        daqOutputMFC.UpdateDaqOut(mfcNumber - 1, inputValue);
                     break;
                 case 4:
                     if (Settings1.Default.MFC4enable == true)
-                        daqOutput.UpdateDaqOut(mfcNumber - 1, inputValue);
+                        daqOutputMFC.UpdateDaqOut(mfcNumber - 1, inputValue);
                     break;
             }
 
@@ -796,7 +807,7 @@ namespace MFCcontrol
             mfcControl4.EnableUserControl();
 
             //Zero all AD outputs
-            ZeroAllOutputs();
+            ZeroAllMFCOutputs();
 
             recipeRunning = false;
             recipePauseCheckbox.Enabled = false;
@@ -843,6 +854,7 @@ namespace MFCcontrol
             if (result == DialogResult.Yes)
             {
                 Settings1.Default.mfcMainControlEnable = false;
+                Settings1.Default.sensorBiasEnable  = false;
                 Settings1.Default.Save();
                 Environment.Exit(0);
             }
@@ -871,11 +883,11 @@ namespace MFCcontrol
             e.Graphics.DrawLine(Pens.Black, e.CellBounds.Location, new Point(e.CellBounds.Right, e.CellBounds.Top));
         }
 
-        private void ZeroAllOutputs()
+        private void ZeroAllMFCOutputs()
         {
             try
             {
-                daqOutput.ZeroDaqOuts();
+                daqOutputMFC.ZeroDaqOuts();
                 mfcControl1.ZeroControl();
                 mfcControl2.ZeroControl();
                 mfcControl3.ZeroControl();
@@ -885,6 +897,23 @@ namespace MFCcontrol
             {
                 DaqOutputProblem();
             }
+        }
+
+        private void ZeroAllBiasOutputs()
+        {
+            try
+            {
+                daqOutputBiases.UpdateDaqOut(Settings1.Default.sensorVgsDaqAO, Convert.ToDouble(0));
+                daqOutputBiases.UpdateDaqOut(Settings1.Default.sensorVdsDaqAO, Convert.ToDouble(0));
+            }
+            catch
+            {
+                DaqOutputProblem();
+            }
+            vdsPresValTextBox.Text = "0.00";
+            vgsPresValTextBox.Text = "0.00";
+            VgsUpDown.Value = 0;
+            VdsUpDown.Value = 0;
         }
 
         private void controlPicoammBox_CheckedChanged(object sender, EventArgs e)
@@ -938,6 +967,75 @@ namespace MFCcontrol
             }
             Settings1.Default.mfcMainControlEnable = mfcMainControlEnable.Checked;
             AinGraphUpdateBox_CheckedChanged(this, EventArgs.Empty);
+        }
+
+        private void biasOutsBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (biasOutsBox.Checked == true)
+            {
+                VgsUpDown.Enabled = true;
+                VdsUpDown.Enabled = true;
+                ZeroAllBiasOutputs();
+            }
+            else
+            {
+                VgsUpDown.Enabled = false;
+                VdsUpDown.Enabled = false;
+                ZeroAllBiasOutputs();
+            }
+            Settings1.Default.sensorBiasEnable = biasOutsBox.Checked;
+        }
+
+        private void vdsLockCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (vdsLockCheckBox.Checked == true)
+            {
+                VdsUpDown.Enabled = false;
+            }
+            else if ( (vdsLockCheckBox.Checked == false) && (Settings1.Default.sensorBiasEnable == true) )
+            {
+                VdsUpDown.Enabled = true;
+            }
+            Settings1.Default.sensorVdsDaqLock = vdsLockCheckBox.Checked;
+        }
+
+        private void vgsLockCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (vgsLockCheckBox.Checked == true)
+            {
+                VgsUpDown.Enabled = false;
+            }
+            else if ((vgsLockCheckBox.Checked == false) && (Settings1.Default.sensorBiasEnable == true))
+            {
+                VgsUpDown.Enabled = true;
+            }
+            Settings1.Default.sensorVgsDaqLock = vgsLockCheckBox.Checked;
+        }
+
+        private void VdsUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                daqOutputBiases.UpdateDaqOut(Settings1.Default.sensorVdsDaqAO, Convert.ToDouble(VdsUpDown.Value));
+            }
+            catch
+            {
+                DaqOutputProblem();
+            }
+            vdsPresValTextBox.Text = VdsUpDown.Value.ToString("0.00");
+        }
+
+        private void VgsUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                daqOutputBiases.UpdateDaqOut(Settings1.Default.sensorVgsDaqAO, Convert.ToDouble(VgsUpDown.Value));
+            }
+            catch
+            {
+                DaqOutputProblem();
+            }
+            vgsPresValTextBox.Text = VgsUpDown.Value.ToString("0.00");
         }
 
     }

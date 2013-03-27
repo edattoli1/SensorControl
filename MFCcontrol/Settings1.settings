@@ -77,11 +77,23 @@
     <Setting Name="mfcMainControlEnable" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="sensorVdsDaq" Type="System.String" Scope="User">
+    <Setting Name="sensorVdsDaqAO" Type="System.String" Scope="User">
       <Value Profile="(Default)">Dev2/ao0</Value>
     </Setting>
-    <Setting Name="sensorGateDaq" Type="System.String" Scope="User">
+    <Setting Name="sensorVgsDaqAO" Type="System.String" Scope="User">
       <Value Profile="(Default)">Dev2/ao1</Value>
+    </Setting>
+    <Setting Name="sensorBiasEnable" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="sensorVdsDaqLock" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="sensorVgsDaqLock" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="sensorBiasMaxRange" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">10</Value>
     </Setting>
   </Settings>
 </SettingsFile>

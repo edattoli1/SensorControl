@@ -326,24 +326,72 @@ namespace MFCcontrol {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Dev2/ao0")]
-        public string sensorVdsDaq {
+        public string sensorVdsDaqAO {
             get {
-                return ((string)(this["sensorVdsDaq"]));
+                return ((string)(this["sensorVdsDaqAO"]));
             }
             set {
-                this["sensorVdsDaq"] = value;
+                this["sensorVdsDaqAO"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Dev2/ao1")]
-        public string sensorGateDaq {
+        public string sensorVgsDaqAO {
             get {
-                return ((string)(this["sensorGateDaq"]));
+                return ((string)(this["sensorVgsDaqAO"]));
             }
             set {
-                this["sensorGateDaq"] = value;
+                this["sensorVgsDaqAO"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool sensorBiasEnable {
+            get {
+                return ((bool)(this["sensorBiasEnable"]));
+            }
+            set {
+                this["sensorBiasEnable"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool sensorVdsDaqLock {
+            get {
+                return ((bool)(this["sensorVdsDaqLock"]));
+            }
+            set {
+                this["sensorVdsDaqLock"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool sensorVgsDaqLock {
+            get {
+                return ((bool)(this["sensorVgsDaqLock"]));
+            }
+            set {
+                this["sensorVgsDaqLock"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        public double sensorBiasMaxRange {
+            get {
+                return ((double)(this["sensorBiasMaxRange"]));
+            }
+            set {
+                this["sensorBiasMaxRange"] = value;
             }
         }
     }

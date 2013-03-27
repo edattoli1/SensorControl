@@ -16,13 +16,12 @@ namespace MFCcontrol
         [STAThread]
         static void Main()
         {
-            DataForDaqOutput dataForDaq = DataForDaqOutput.Instance;
 
             GenStopwatch watch1 = new GenStopwatch();
             
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1(dataForDaq, watch1));
+            Application.Run(new Form1(watch1));
         }
     }
 }
