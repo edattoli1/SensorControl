@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.timeElapsedBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -47,6 +47,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.mfcMainControlEnable = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.mfcControl4 = new MFCcontrol.MFCcontrolTemplate();
+            this.mfcControl1 = new MFCcontrol.MFCcontrolTemplate();
+            this.mfcControl2 = new MFCcontrol.MFCcontrolTemplate();
+            this.mfcControl3 = new MFCcontrol.MFCcontrolTemplate();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label16 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -92,10 +96,6 @@
             this.vgsPresValTextBox = new System.Windows.Forms.TextBox();
             this.biasOutsBox = new System.Windows.Forms.CheckBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.mfcControl4 = new MFCcontrol.MFCcontrolTemplate();
-            this.mfcControl1 = new MFCcontrol.MFCcontrolTemplate();
-            this.mfcControl2 = new MFCcontrol.MFCcontrolTemplate();
-            this.mfcControl3 = new MFCcontrol.MFCcontrolTemplate();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -113,42 +113,42 @@
             // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(19, 7);
             this.chart1.Name = "chart1";
-            series5.BorderWidth = 3;
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series5.CustomProperties = "IsXAxisQuantitative=False";
-            series5.Legend = "Legend1";
-            series5.Name = "MFC1";
-            series5.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-            series5.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-            series6.BorderWidth = 3;
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series6.CustomProperties = "IsXAxisQuantitative=False";
-            series6.Legend = "Legend1";
-            series6.Name = "MFC2";
-            series6.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-            series6.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-            series7.BorderWidth = 3;
-            series7.ChartArea = "ChartArea1";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series7.Legend = "Legend1";
-            series7.Name = "MFC3";
-            series8.BorderWidth = 3;
-            series8.ChartArea = "ChartArea1";
-            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series8.Legend = "Legend1";
-            series8.Name = "MFC4";
-            this.chart1.Series.Add(series5);
-            this.chart1.Series.Add(series6);
-            this.chart1.Series.Add(series7);
-            this.chart1.Series.Add(series8);
+            series1.BorderWidth = 3;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.CustomProperties = "IsXAxisQuantitative=False";
+            series1.Legend = "Legend1";
+            series1.Name = "MFC1";
+            series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            series1.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            series2.BorderWidth = 3;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.CustomProperties = "IsXAxisQuantitative=False";
+            series2.Legend = "Legend1";
+            series2.Name = "MFC2";
+            series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            series2.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            series3.BorderWidth = 3;
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Legend = "Legend1";
+            series3.Name = "MFC3";
+            series4.BorderWidth = 3;
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Legend = "Legend1";
+            series4.Name = "MFC4";
+            this.chart1.Series.Add(series1);
+            this.chart1.Series.Add(series2);
+            this.chart1.Series.Add(series3);
+            this.chart1.Series.Add(series4);
             this.chart1.Size = new System.Drawing.Size(651, 300);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -281,6 +281,34 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(498, 174);
             this.tableLayoutPanel2.TabIndex = 36;
+            // 
+            // mfcControl4
+            // 
+            this.mfcControl4.Location = new System.Drawing.Point(3, 132);
+            this.mfcControl4.Name = "mfcControl4";
+            this.mfcControl4.Size = new System.Drawing.Size(487, 39);
+            this.mfcControl4.TabIndex = 35;
+            // 
+            // mfcControl1
+            // 
+            this.mfcControl1.Location = new System.Drawing.Point(3, 3);
+            this.mfcControl1.Name = "mfcControl1";
+            this.mfcControl1.Size = new System.Drawing.Size(492, 37);
+            this.mfcControl1.TabIndex = 36;
+            // 
+            // mfcControl2
+            // 
+            this.mfcControl2.Location = new System.Drawing.Point(3, 46);
+            this.mfcControl2.Name = "mfcControl2";
+            this.mfcControl2.Size = new System.Drawing.Size(492, 31);
+            this.mfcControl2.TabIndex = 37;
+            // 
+            // mfcControl3
+            // 
+            this.mfcControl3.Location = new System.Drawing.Point(3, 89);
+            this.mfcControl3.Name = "mfcControl3";
+            this.mfcControl3.Size = new System.Drawing.Size(492, 33);
+            this.mfcControl3.TabIndex = 38;
             // 
             // tableLayoutPanel1
             // 
@@ -670,7 +698,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.12613F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.54817F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.5382F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 104F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 106F));
             this.tableLayoutPanel3.Controls.Add(this.label17, 0, 2);
             this.tableLayoutPanel3.Controls.Add(this.label15, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.label19, 1, 0);
@@ -728,7 +756,7 @@
             this.VdsUpDown.Location = new System.Drawing.Point(61, 37);
             this.VdsUpDown.Margin = new System.Windows.Forms.Padding(5);
             this.VdsUpDown.Name = "VdsUpDown";
-            this.VdsUpDown.Size = new System.Drawing.Size(67, 22);
+            this.VdsUpDown.Size = new System.Drawing.Size(66, 22);
             this.VdsUpDown.TabIndex = 34;
             this.VdsUpDown.ValueChanged += new System.EventHandler(this.VdsUpDown_ValueChanged);
             // 
@@ -739,14 +767,14 @@
             this.VgsUpDown.Location = new System.Drawing.Point(61, 69);
             this.VgsUpDown.Margin = new System.Windows.Forms.Padding(5);
             this.VgsUpDown.Name = "VgsUpDown";
-            this.VgsUpDown.Size = new System.Drawing.Size(67, 22);
+            this.VgsUpDown.Size = new System.Drawing.Size(66, 22);
             this.VgsUpDown.TabIndex = 35;
             this.VgsUpDown.ValueChanged += new System.EventHandler(this.VgsUpDown_ValueChanged);
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(221, 5);
+            this.label20.Location = new System.Drawing.Point(220, 5);
             this.label20.Margin = new System.Windows.Forms.Padding(5);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(46, 17);
@@ -756,7 +784,7 @@
             // vdsLockCheckBox
             // 
             this.vdsLockCheckBox.AutoSize = true;
-            this.vdsLockCheckBox.Location = new System.Drawing.Point(219, 35);
+            this.vdsLockCheckBox.Location = new System.Drawing.Point(218, 35);
             this.vdsLockCheckBox.Name = "vdsLockCheckBox";
             this.vdsLockCheckBox.Padding = new System.Windows.Forms.Padding(8);
             this.vdsLockCheckBox.Size = new System.Drawing.Size(31, 26);
@@ -767,7 +795,7 @@
             // vgsLockCheckBox
             // 
             this.vgsLockCheckBox.AutoSize = true;
-            this.vgsLockCheckBox.Location = new System.Drawing.Point(219, 67);
+            this.vgsLockCheckBox.Location = new System.Drawing.Point(218, 67);
             this.vgsLockCheckBox.Name = "vgsLockCheckBox";
             this.vgsLockCheckBox.Padding = new System.Windows.Forms.Padding(8);
             this.vgsLockCheckBox.Size = new System.Drawing.Size(31, 28);
@@ -778,7 +806,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(138, 5);
+            this.label24.Location = new System.Drawing.Point(137, 5);
             this.label24.Margin = new System.Windows.Forms.Padding(5);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(54, 17);
@@ -788,7 +816,7 @@
             // vdsPresValTextBox
             // 
             this.vdsPresValTextBox.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.vdsPresValTextBox.Location = new System.Drawing.Point(139, 38);
+            this.vdsPresValTextBox.Location = new System.Drawing.Point(138, 38);
             this.vdsPresValTextBox.Margin = new System.Windows.Forms.Padding(6);
             this.vdsPresValTextBox.Name = "vdsPresValTextBox";
             this.vdsPresValTextBox.Size = new System.Drawing.Size(69, 22);
@@ -797,7 +825,7 @@
             // vgsPresValTextBox
             // 
             this.vgsPresValTextBox.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.vgsPresValTextBox.Location = new System.Drawing.Point(139, 70);
+            this.vgsPresValTextBox.Location = new System.Drawing.Point(138, 70);
             this.vgsPresValTextBox.Margin = new System.Windows.Forms.Padding(6);
             this.vgsPresValTextBox.Name = "vgsPresValTextBox";
             this.vgsPresValTextBox.Size = new System.Drawing.Size(69, 22);
@@ -824,34 +852,6 @@
             this.label8.Size = new System.Drawing.Size(200, 20);
             this.label8.TabIndex = 25;
             this.label8.Text = "ANALOG DAQ OUTPUT";
-            // 
-            // mfcControl4
-            // 
-            this.mfcControl4.Location = new System.Drawing.Point(3, 132);
-            this.mfcControl4.Name = "mfcControl4";
-            this.mfcControl4.Size = new System.Drawing.Size(487, 39);
-            this.mfcControl4.TabIndex = 35;
-            // 
-            // mfcControl1
-            // 
-            this.mfcControl1.Location = new System.Drawing.Point(3, 3);
-            this.mfcControl1.Name = "mfcControl1";
-            this.mfcControl1.Size = new System.Drawing.Size(492, 37);
-            this.mfcControl1.TabIndex = 36;
-            // 
-            // mfcControl2
-            // 
-            this.mfcControl2.Location = new System.Drawing.Point(3, 46);
-            this.mfcControl2.Name = "mfcControl2";
-            this.mfcControl2.Size = new System.Drawing.Size(492, 31);
-            this.mfcControl2.TabIndex = 37;
-            // 
-            // mfcControl3
-            // 
-            this.mfcControl3.Location = new System.Drawing.Point(3, 89);
-            this.mfcControl3.Name = "mfcControl3";
-            this.mfcControl3.Size = new System.Drawing.Size(492, 33);
-            this.mfcControl3.TabIndex = 38;
             // 
             // Form1
             // 

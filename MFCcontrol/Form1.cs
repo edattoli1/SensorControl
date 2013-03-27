@@ -687,7 +687,6 @@ namespace MFCcontrol
             mfcControl2.UpdateConfig();
             mfcControl3.UpdateConfig();
             mfcControl4.UpdateConfig();
-            //mfc4TextBox.Maximum = Convert.ToDecimal(Settings1.Default.MFC4maxRange);
             chart1.Series[0].Name = Settings1.Default.MFC1Gas;
             chart1.Series[1].Name = Settings1.Default.MFC2Gas;
             chart1.Series[2].Name = Settings1.Default.MFC3Gas;
@@ -837,7 +836,6 @@ namespace MFCcontrol
 
         private void ke648xStart_Click(object sender, EventArgs e)
         {
-            //PicoAmmForm = new Ke648xGUI();
             if (PicoammForm == null)
                 PicoammForm = new Ke648xGUI(PicoammControl);
 
