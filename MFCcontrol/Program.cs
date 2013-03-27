@@ -17,11 +17,9 @@ namespace MFCcontrol
         static void Main()
         {
 
-            GenStopwatch watch1 = new GenStopwatch();
-            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1(watch1));
+            Application.Run(new Form1());
         }
     }
 }

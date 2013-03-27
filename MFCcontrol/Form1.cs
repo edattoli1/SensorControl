@@ -38,6 +38,7 @@ namespace MFCcontrol
         private double[] presentMFCsetting;
         private static Ke648xGUI PicoammForm;
         static private Ke648xControl PicoammControl;
+        static private ConfigBiasOutForm configBiasForm1;
 
         // state of the MFCs for the recipe to be used
         // 0th in array corresponds to MFC 1, .., etc
@@ -55,7 +56,7 @@ namespace MFCcontrol
         private bool IsADoutfileOpen = false;
         
         
-        public Form1(GenStopwatch inputWatch)
+        public Form1()
         {
             InitializeComponent();
 
@@ -87,7 +88,7 @@ namespace MFCcontrol
             VdsUpDown.Minimum = -1 * Convert.ToDecimal(Settings1.Default.sensorBiasMaxRange);
             VgsUpDown.Minimum = -1 * Convert.ToDecimal(Settings1.Default.sensorBiasMaxRange);
 
-            watch = inputWatch;
+            watch = new GenStopwatch();
             
             timerUI = new GenTimer();
             timerUI.SetInterval(Settings1.Default.timerUI_ms);
@@ -1036,6 +1037,13 @@ namespace MFCcontrol
                 DaqOutputProblem();
             }
             vgsPresValTextBox.Text = VgsUpDown.Value.ToString("0.00");
+        }
+
+        private void configBiasOutputButton_Click(object sender, EventArgs e)
+        {
+            configBiasForm1 = new ConfigBiasOutForm();
+
+            configBiasForm1.ShowDialog();
         }
 
     }
