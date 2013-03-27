@@ -37,3 +37,4 @@ C:\Users\Eric\Documents\Visual Studio 2012\Projects\SensorControl\MFCcontrol\obj
 C:\Users\Eric\Documents\Visual Studio 2012\Projects\SensorControl\MFCcontrol\obj\Debug\MFCcontrol.csproj.GenerateResource.Cache
 C:\Users\Eric\Documents\Visual Studio 2012\Projects\SensorControl\MFCcontrol\obj\Debug\GraphAsync1.exe.manifest
 C:\Users\Eric\Documents\Visual Studio 2012\Projects\SensorControl\MFCcontrol\obj\Debug\GraphAsync1.application
+C:\Users\Eric\Documents\Visual Studio 2012\Projects\SensorControl\MFCcontrol\obj\Debug\MFCcontrol.ConfigBiasOutForm.resources
